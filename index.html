@@ -1,25 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muslim and Christian Population 2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Global Muslim and Christian population estimates for 2025–2026, projections to 2030 and 2050, and source-backed demographic notes. كلمات بحث: عدد المسلمين، عدد المسيحيين، عدد المسلمين 2026، عدد المسيحيين 2026." />
+  <meta name="keywords" content="Muslim population 2026, Christian population 2026, عدد المسلمين, عدد المسيحيين, عدد المسلمين 2026, عدد المسيحيين 2026, global religion statistics, Pew Research, Gordon-Conwell" />
+  <meta name="author" content="Global Religion Statistics" />
+  <meta property="og:title" content="Global Muslim and Christian Population 2026" />
+  <meta property="og:description" content="Source-backed estimates, projections, and methodology for the global Muslim and Christian population." />
+  <title>Global Muslim and Christian Population 2026</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f172a;
+      --card:#111827;
+      --card2:#0b1020;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --line:rgba(255,255,255,.08);
+      --accent:#60a5fa;
+      --accent2:#34d399;
+      --warn:#fbbf24;
+      --danger:#fb7185;
+      --shadow:0 18px 60px rgba(0,0,0,.35);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(96,165,250,.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(52,211,153,.14), transparent 28%),
+        linear-gradient(180deg, #050816 0%, #0b1220 40%, #0f172a 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
+    a{color:#93c5fd; text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1180px; margin:0 auto; padding:24px}
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:30px;
+      background:
+        linear-gradient(135deg, rgba(17,24,39,.95), rgba(15,23,42,.88)),
+        radial-gradient(circle at top right, rgba(96,165,250,.2), transparent 25%);
+      box-shadow:var(--shadow);
+      padding:36px 28px;
+      margin-top:10px;
+    }
+    .topbar{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+      backdrop-filter: blur(8px);
+    }
+    .badge strong{color:var(--text)}
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(30px, 5vw, 54px);
+      line-height:1.08;
+      letter-spacing:-.04em;
+    }
+    .subtitle{
+      max-width:920px;
+      color:#d1d5db;
+      font-size:18px;
+      margin:0;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:18px;
+      margin-top:24px;
+    }
+    .panel{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+    }
+    .panel h3{margin:0 0 12px; font-size:18px}
+    .mini{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .mini-card{
+      padding:16px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(17,24,39,.95), rgba(15,23,42,.9));
+      border:1px solid var(--line);
+    }
+    .mini-card .label{color:var(--muted); font-size:13px}
+    .mini-card .value{font-size:26px; font-weight:800; margin-top:4px}
+    .mini-card .note{color:var(--muted); font-size:13px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,minmax(0,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+    .section{
+      grid-column:1/-1;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .two{
+      grid-column:span 6;
+    }
+    .three{
+      grid-column:span 4;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:28px;
+      line-height:1.15;
+    }
+    .section p{margin:0 0 12px; color:#d1d5db}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+    .stat-card{
+      background:linear-gradient(180deg, rgba(17,24,39,.92), rgba(11,16,32,.92));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      min-height:170px;
+    }
+    .stat-card .kicker{color:var(--muted); font-size:14px; margin-bottom:8px}
+    .stat-card .big{
+      font-size:clamp(28px, 4vw, 42px);
+      font-weight:900;
+      margin:0 0 10px;
+      letter-spacing:-.03em;
+    }
+    .stat-card .desc{color:#cbd5e1; margin:0}
+    .accent{color:var(--accent)}
+    .green{color:var(--accent2)}
+    .yellow{color:var(--warn)}
+    .red{color:var(--danger)}
+    .timeline{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:18px;
+      margin-top:18px;
+      border:1px solid var(--line);
+    }
+    .timeline th, .timeline td{
+      text-align:left;
+      padding:14px 14px;
+      border-bottom:1px solid var(--line);
+      vertical-align:top;
+    }
+    .timeline th{
+      background:rgba(255,255,255,.05);
+      color:#f3f4f6;
+      font-weight:700;
+    }
+    .timeline tr:last-child td{border-bottom:none}
+    .tag{
+      display:inline-block;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      margin:0 8px 8px 0;
+    }
+    .source-list{
+      display:grid;
+      gap:12px;
+      margin-top:12px;
+    }
+    .source{
+      padding:14px 16px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .source b{display:block; margin-bottom:4px}
+    .note{
+      color:#cbd5e1;
+      font-size:14px;
+      border-left:3px solid var(--accent);
+      padding-left:12px;
+      margin-top:14px;
+    }
+    .arabic-box{
+      direction:rtl;
+      text-align:right;
+      background:linear-gradient(180deg, rgba(17,24,39,.92), rgba(11,16,32,.92));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+      margin-top:14px;
+    }
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      padding:28px 8px 18px;
+      font-size:14px;
+    }
+    @media (max-width: 900px){
+      .hero-grid, .cards, .mini{grid-template-columns:1fr}
+      .two,.three{grid-column:1/-1}
+      .section{padding:20px}
+      .timeline th, .timeline td{padding:12px}
+    }
+  </style>
 </head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="topbar">
+        <span class="badge"><strong>Source-backed</strong> estimates only</span>
+        <span class="badge">Muslims • Christians • Projections</span>
+        <span class="badge">Updated for <strong>2025–2026</strong></span>
+      </div>
 
-<body style="font-family: Arial; text-align:center; padding:20px;">
+      <h1>Global Muslim & Christian Population 2026</h1>
+      <p class="subtitle">
+        A clean, source-based overview of current estimates, long-term projections, and the difference between present-day numbers and future forecasts.
+      </p>
 
-<h1>Muslim and Christian Population 2026</h1>
+      <div class="hero-grid">
+        <div class="panel">
+          <h3>Quick takeaway</h3>
+          <div class="mini">
+            <div class="mini-card">
+              <div class="label">Muslims (current estimate)</div>
+              <div class="value accent">2.0–2.1B</div>
+              <div class="note">2025–2026 estimate</div>
+            </div>
+            <div class="mini-card">
+              <div class="label">Christians (current estimate)</div>
+              <div class="value green">2.66–2.70B</div>
+              <div class="note">2025–2026 estimate</div>
+            </div>
+          </div>
+        </div>
 
-<p>This page provides updated estimates of the number of Muslims and Christians worldwide.</p>
+        <div class="panel">
+          <h3>Search keywords</h3>
+          <div>
+            <span class="tag">عدد المسلمين</span>
+            <span class="tag">عدد المسلمين 2026</span>
+            <span class="tag">عدد المسيحيين</span>
+            <span class="tag">عدد المسيحيين 2026</span>
+            <span class="tag">Muslim population</span>
+            <span class="tag">Christian population</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h2>Islam</h2>
-<p>Estimated: 2.0 – 2.1 billion Muslims (2025–2026)</p>
+    <div class="grid">
+      <section class="section two">
+        <h2>Islam</h2>
+        <p>
+          The most defensible source-backed figure for today is about <b>2.0 billion</b> Muslims,
+          based on Pew Research Center’s 2025 report that the number of Muslims grew to 2.0 billion by 2020.
+          A 2025–2026 display of <b>2.0–2.1 billion</b> should be clearly labeled as an estimate, not a direct official count.
+        </p>
+        <p>
+          Pew’s projections place Muslims at <b>2.2 billion by 2030</b> and about <b>2.8 billion by 2050</b>.
+          A mid-2030s figure of around <b>2.4 billion</b> can be presented only as an interpolated estimate between those projection points.
+        </p>
+        <p class="note">
+          Source anchors: Pew Research Center (2025 report on global Muslim population change, and Pew’s projection studies).
+        </p>
+      </section>
 
-<h2>Christianity</h2>
-<p>Estimated: 2.66 – 2.7 billion Christians (2025–2026 estimates)</p>
+      <section class="section two">
+        <h2>Christianity</h2>
+        <p>
+          Gordon-Conwell’s <b>Status of Global Christianity 2026</b> says the world has about <b>2.6 billion Christians</b> in 2026,
+          and its 2026 table projects <b>3.676 billion</b> Christians by 2050.
+        </p>
+        <p>
+          Gordon-Conwell’s older 2015 projection also stated <b>3.3 billion Christians by 2050</b>.
+          Because the methodologies differ, the safest way to present this is as a range or by explicitly naming the source used.
+        </p>
+        <p class="note">
+          Source anchors: Gordon-Conwell Center for the Study of Global Christianity (2026 table) and the 2015 IBMR projection.
+        </p>
+      </section>
 
-<h3>Important Note</h3>
-<p>Numbers may vary depending on sources such as Pew Research Center and global demographic studies.</p>
+      <section class="section">
+        <h2>Projection timeline</h2>
+        <p>
+          This table separates current estimates from long-term projections so the page stays accurate and trustworthy.
+        </p>
 
+        <table class="timeline">
+          <thead>
+            <tr>
+              <th>Year / Topic</th>
+              <th>Muslims</th>
+              <th>Christians</th>
+              <th>Source / note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>2025–2026 (current)</b></td>
+              <td>About 2.0–2.1 billion</td>
+              <td>About 2.66–2.70 billion</td>
+              <td>Muslims: Pew 2025 current count; Christians: Gordon-Conwell 2026 current estimate</td>
+            </tr>
+            <tr>
+              <td><b>2030</b></td>
+              <td>2.2 billion</td>
+              <td>—</td>
+              <td>Pew Research projection for Muslims</td>
+            </tr>
+            <tr>
+              <td><b>Mid-2030s</b></td>
+              <td>~2.4 billion</td>
+              <td>—</td>
+              <td>Interpolated estimate between Pew’s 2030 and 2050 Muslim projections</td>
+            </tr>
+            <tr>
+              <td><b>2050</b></td>
+              <td>2.8 billion</td>
+              <td>3.3–3.68 billion</td>
+              <td>Muslims: Pew 2015. Christians: Gordon-Conwell 2015 and 2026 tables differ by methodology</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section two">
+        <h2>Why sources disagree</h2>
+        <p>
+          Different datasets use different methods: census data, surveys, denominational counts, migration adjustments,
+          fertility assumptions, and religious switching. That is why some sites show different totals for the same year.
+        </p>
+        <p>
+          To stay trustworthy, this page labels every number as either a current estimate or a projection and names the source beside it.
+        </p>
+      </section>
+
+      <section class="section two">
+        <h2>Regional notes</h2>
+        <p>
+          Gordon-Conwell’s 2026 materials note the continuing shift of Christianity toward the Global South.
+          Their 2026 table shows the share of all Christians in the Global South rising from 66.6% to 82.0% in the long-range column.
+        </p>
+        <p>
+          For Muslims, Pew’s country-level projections show the fastest long-term growth comes from demographic momentum and age structure,
+          not from unsupported one-line claims.
+        </p>
+        <p class="note">
+          If you want, you can add a separate regional table next using only sourced numbers.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Sources & references</h2>
+        <div class="source-list">
+          <div class="source">
+            <b>Pew Research Center — Muslim population change (2025)</b>
+            <div>Reports that Muslims grew from 1.7 billion in 2010 to 2.0 billion in 2020.</div>
+            <div><a href="https://www.pewresearch.org/religion/2025/06/09/muslim-population-change/" target="_blank" rel="noopener">Pew: Muslim population change</a></div>
+          </div>
+
+          <div class="source">
+            <b>Pew Research Center — Future of the Global Muslim Population (2011)</b>
+            <div>Projects 2.2 billion Muslims by 2030.</div>
+            <div><a href="https://www.pewresearch.org/religion/2011/01/27/the-future-of-the-global-muslim-population/" target="_blank" rel="noopener">Pew: Muslim projections to 2030</a></div>
+          </div>
+
+          <div class="source">
+            <b>Pew Research Center — Religious projections 2010–2050 (2015)</b>
+            <div>Projects 2.8 billion Muslims and 2.9 billion Christians by 2050.</div>
+            <div><a href="https://www.pewresearch.org/religion/2015/04/02/religious-projections-2010-2050/" target="_blank" rel="noopener">Pew: Projections to 2050</a></div>
+          </div>
+
+          <div class="source">
+            <b>Gordon-Conwell — Status of Global Christianity 2026</b>
+            <div>Lists about 2.6 billion Christians in 2026 and projects 3.676 billion by 2050.</div>
+            <div><a href="https://www.gordonconwell.edu/center-for-global-christianity/resources/status-of-global-christianity/" target="_blank" rel="noopener">Gordon-Conwell 2026 table</a></div>
+          </div>
+
+          <div class="source">
+            <b>Gordon-Conwell — Christianity 2015 projection</b>
+            <div>Older Gordon-Conwell projection: 3.3 billion Christians by 2050.</div>
+            <div><a href="https://www.gordonconwell.edu/wp-content/uploads/sites/13/2019/04/2IBMR2015.pdf" target="_blank" rel="noopener">Gordon-Conwell 2015 article</a></div>
+          </div>
+        </div>
+
+        <div class="arabic-box">
+          <b>عبارات البحث المستهدفة:</b><br>
+          عدد المسلمين، عدد المسلمين 2026، عدد المسلمين في العالم 2026، عدد المسيحيين، عدد المسيحيين 2026، عدد المسيحيين في العالم 2026
+        </div>
+
+        <p class="note">
+          Important: the 2035 Muslim figure is shown here as an interpolated estimate, not as a direct quote from a single source.
+        </p>
+      </section>
+    </div>
+
+    <div class="footer">
+      Built with source-backed estimates, clear labels, and separate current vs projected numbers.
+    </div>
+  </div>
 </body>
 </html>
