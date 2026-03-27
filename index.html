@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Global Religion Statistics 2026</title>
+<title>عدد المسلمين والمسيحيين في العالم 2026 | إحصائيات دقيقة</title>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -12,213 +12,198 @@
 body {
   margin:0;
   font-family:Arial;
+  display:flex;
+  background:#f4f6f9;
+}
+
+/* Sidebar */
+.sidebar {
+  width:260px;
   background:#ffffff;
-  color:#111;
-}
-
-.container {
-  max-width:1100px;
-  margin:auto;
+  height:100vh;
+  position:fixed;
+  right:0;
+  top:0;
   padding:20px;
+  box-shadow:-2px 0 10px rgba(0,0,0,0.1);
+  transition:0.3s;
 }
 
-h1,h2,h3 {
-  color:#111827;
-}
-
-.card {
-  background:#ffffff;
-  border:1px solid #e5e7eb;
-  border-radius:10px;
-  padding:20px;
+.sidebar h2 {
   margin-bottom:20px;
 }
 
-.big {
-  font-size:28px;
-  font-weight:bold;
+.sidebar a {
+  display:block;
+  padding:10px;
+  text-decoration:none;
+  color:#333;
+  border-radius:8px;
 }
 
-.blue { color:#2563eb; }
-.green { color:#16a34a; }
+.sidebar a:hover {
+  background:#eee;
+}
 
+/* Button */
+.menu-btn {
+  position:fixed;
+  top:15px;
+  right:15px;
+  background:white;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+  font-size:20px;
+  z-index:1000;
+}
+
+/* Content */
+.content {
+  margin-right:280px;
+  padding:30px;
+  width:100%;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  margin-bottom:20px;
+  border-radius:12px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin-top:40px;
+}
+
+/* Table */
 table {
   width:100%;
   border-collapse:collapse;
-  margin-top:10px;
 }
 
 th, td {
   padding:10px;
   border-bottom:1px solid #ddd;
+  text-align:center;
 }
 
-th {
-  background:#f3f4f6;
-}
-
-.chart-box {
-  margin-top:20px;
+/* Mobile */
+@media(max-width:768px){
+  .sidebar { right:-260px; }
+  .sidebar.active { right:0; }
+  .content { margin-right:0; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<h1>Global Religion Statistics 2026</h1>
-<p>
-This page provides structured and research-based statistics about global Muslim and Christian populations, including distribution, comparison, and future projections.
-</p>
-
-<!-- OVERVIEW -->
-<div class="card">
-<h2>Overview</h2>
-
-<p class="big blue">Muslims: 2.0 – 2.1 Billion</p>
-<p class="big green">Christians: 2.66 – 2.7 Billion</p>
-
-<p>
-Christianity is the largest religion in the world as of 2026.
-</p>
+<div class="sidebar" id="menu">
+<h2>📊 الأقسام</h2>
+<a href="#home">الرئيسية</a>
+<a href="#muslims">المسلمين</a>
+<a href="#christians">المسيحيين</a>
+<a href="#compare">المقارنة</a>
+<a href="#charts">الرسوم البيانية</a>
+<a href="#future">التوقعات</a>
+<a href="#sources">المصادر</a>
 </div>
 
-<!-- MUSLIMS -->
+<div class="content">
+
+<h1 id="home">عدد المسلمين والمسيحيين في العالم 2026</h1>
+
 <div class="card">
-<h2>Muslim Population</h2>
+<h2>نظرة عامة</h2>
+<p><b>المسلمين:</b> 2.0 – 2.1 مليار</p>
+<p><b>المسيحيين:</b> 2.66 – 2.7 مليار</p>
+<p>المسيحية هي أكبر ديانة في العالم لعام 2026.</p>
+</div>
 
-<p>
-The global Muslim population is estimated at approximately 2.0 to 2.1 billion in 2026, representing around 25% of the world population.
-</p>
-
-<h3>Regional Distribution</h3>
+<div class="card" id="muslims">
+<h2>عدد المسلمين</h2>
+<p>يقدر عدد المسلمين عالميًا بحوالي 2.0 إلى 2.1 مليار.</p>
 
 <table>
-<tr><th>Region</th><th>Population</th></tr>
-<tr><td>Asia</td><td>1.25 Billion</td></tr>
-<tr><td>Africa</td><td>450 Million</td></tr>
-<tr><td>Europe</td><td>60 Million</td></tr>
-<tr><td>North America</td><td>8 Million</td></tr>
-<tr><td>South America</td><td>2 Million</td></tr>
-<tr><td>Oceania</td><td>1 Million</td></tr>
+<tr><th>القارة</th><th>عدد المسلمين</th></tr>
+<tr><td>آسيا</td><td>1.25 مليار</td></tr>
+<tr><td>أفريقيا</td><td>450 مليون</td></tr>
+<tr><td>أوروبا</td><td>60 مليون</td></tr>
+<tr><td>أمريكا الشمالية</td><td>8 مليون</td></tr>
+<tr><td>أمريكا الجنوبية</td><td>2 مليون</td></tr>
+<tr><td>أوقيانوسيا</td><td>1 مليون</td></tr>
 </table>
-
-<div class="chart-box">
-<canvas id="muslimChart"></canvas>
 </div>
 
-<h3>Future Projections</h3>
-<ul>
-<li>2030: 2.2 Billion</li>
-<li>2035: 2.4 Billion</li>
-<li>2050: 2.8 Billion</li>
-</ul>
-
-</div>
-
-<!-- CHRISTIANS -->
-<div class="card">
-<h2>Christian Population</h2>
-
-<p>
-The global Christian population is estimated at around 2.66 to 2.7 billion in 2026, making Christianity the largest religion worldwide.
-</p>
-
-<h3>Regional Distribution</h3>
+<div class="card" id="christians">
+<h2>عدد المسيحيين</h2>
+<p>يقدر عدد المسيحيين بحوالي 2.7 مليار.</p>
 
 <table>
-<tr><th>Region</th><th>Population</th></tr>
-<tr><td>Africa</td><td>750 Million</td></tr>
-<tr><td>Latin America</td><td>620 Million</td></tr>
-<tr><td>Europe</td><td>550 Million</td></tr>
-<tr><td>Asia</td><td>420 Million</td></tr>
-<tr><td>North America</td><td>280 Million</td></tr>
-<tr><td>Oceania</td><td>30 Million</td></tr>
+<tr><th>القارة</th><th>عدد المسيحيين</th></tr>
+<tr><td>أفريقيا</td><td>750 مليون</td></tr>
+<tr><td>أمريكا اللاتينية</td><td>620 مليون</td></tr>
+<tr><td>أوروبا</td><td>550 مليون</td></tr>
+<tr><td>آسيا</td><td>420 مليون</td></tr>
+<tr><td>أمريكا الشمالية</td><td>280 مليون</td></tr>
+<tr><td>أوقيانوسيا</td><td>30 مليون</td></tr>
 </table>
-
-<div class="chart-box">
-<canvas id="christianChart"></canvas>
 </div>
 
-<h3>Future Projection</h3>
-<ul>
-<li>2050: 3.3 Billion</li>
-</ul>
-
+<div class="card" id="compare">
+<h2>المقارنة</h2>
+<p>عدد المسيحيين أكبر من المسلمين بحوالي 600 مليون.</p>
 </div>
 
-<!-- COMPARISON -->
-<div class="card">
-<h2>Comparison</h2>
+<div class="card" id="charts">
+<h2>الرسوم البيانية</h2>
 
-<p class="big">
-Christians: 2.7 Billion<br>
-Muslims: 2.1 Billion
-</p>
-
-<p>
-Christianity is larger than Islam by approximately 600 million people globally in 2026.
-</p>
-
-<div class="chart-box">
-<canvas id="compareChart"></canvas>
-</div>
+<canvas id="religionChart"></canvas>
 
 </div>
 
-<!-- SOURCES -->
-<div class="card">
-<h2>Sources</h2>
+<div class="card" id="future">
+<h2>التوقعات المستقبلية</h2>
+<p>2030: المسلمون 2.2 مليار</p>
+<p>2035: المسلمون 2.4 مليار</p>
+<p>2050: المسلمون 2.8 مليار</p>
+<p>2050: المسيحيون 3.3 مليار</p>
+</div>
 
+<div class="card" id="sources">
+<h2>المصادر</h2>
 <ul>
 <li>Pew Research Center</li>
-<li>Center for the Study of Global Christianity (CSGC)</li>
+<li>Gordon-Conwell (CSGC)</li>
 <li>World Population Review</li>
-<li>Global demographic research reports (2025–2026)</li>
+<li>PRB</li>
 </ul>
-
 </div>
 
 </div>
 
 <script>
+function toggleMenu(){
+ document.getElementById("menu").classList.toggle("active");
+}
 
-// Muslim Chart
-new Chart(document.getElementById('muslimChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Asia','Africa','Europe','N. America','S. America','Oceania'],
-    datasets: [{
-      label: 'Muslims (Millions)',
-      data: [1250,450,60,8,2,1]
-    }]
-  }
+const ctx = document.getElementById('religionChart');
+
+new Chart(ctx, {
+ type: 'bar',
+ data: {
+   labels: ['المسلمين', 'المسيحيين'],
+   datasets: [{
+     label: 'عدد السكان (بالمليار)',
+     data: [2.1, 2.7],
+     backgroundColor: ['#3498db','#2ecc71']
+   }]
+ }
 });
-
-// Christian Chart
-new Chart(document.getElementById('christianChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Africa','Latin America','Europe','Asia','N. America','Oceania'],
-    datasets: [{
-      label: 'Christians (Millions)',
-      data: [750,620,550,420,280,30]
-    }]
-  }
-});
-
-// Comparison Chart
-new Chart(document.getElementById('compareChart'), {
-  type: 'pie',
-  data: {
-    labels: ['Christians','Muslims'],
-    datasets: [{
-      data: [2700,2100]
-    }]
-  }
-});
-
 </script>
 
 </body>
