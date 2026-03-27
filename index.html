@@ -3,275 +3,615 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عدد المسلمين والمسيحيين في العالم 2026 | Dashboard</title>
 
-<title>Dashboard | إحصائيات الأديان</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
+:root{
+  --bg:#0b1220;
+  --panel:#111b2e;
+  --panel-2:#16233a;
+  --line:#24324d;
+  --text:#e9eef8;
+  --muted:#94a3b8;
+  --blue:#38bdf8;
+  --green:#4ade80;
+  --gold:#fbbf24;
+  --shadow:0 14px 40px rgba(0,0,0,.28);
+  --radius:20px;
+}
 
-html { scroll-behavior:smooth; }
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Arial;
-background:#0f172a;
-color:white;
-display:flex;
+  margin:0;
+  font-family:"Tajawal",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background: radial-gradient(1200px 700px at 80% 0%, rgba(56,189,248,.10), transparent 55%),
+              radial-gradient(900px 600px at 0% 20%, rgba(74,222,128,.08), transparent 40%),
+              var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-/* SIDEBAR */
-.sidebar{
-width:260px;
-background:#1e293b;
-height:100vh;
-position:fixed;
-right:0;
-top:0;
-padding:20px;
-transition:0.3s;
+/* Top bar */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:16px 18px;
+  background:rgba(11,18,32,.78);
+  backdrop-filter: blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
-
-.sidebar h2{margin-bottom:20px;}
-
-.sidebar a{
-display:block;
-padding:12px;
-color:white;
-text-decoration:none;
-border-radius:10px;
-margin-bottom:5px;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  font-size:18px;
 }
-
-.sidebar a:hover{
-background:#334155;
+.brand i{
+  color:var(--blue);
 }
-
-/* MENU BUTTON */
 .menu-btn{
-position:fixed;
-top:15px;
-right:15px;
-background:#1e293b;
-color:white;
-border:none;
-padding:10px;
-font-size:20px;
-z-index:1000;
+  border:0;
+  background:linear-gradient(135deg, #1e2a44, #132033);
+  color:var(--text);
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:var(--shadow);
 }
 
-/* CONTENT */
+/* Layout */
+.page{
+  display:grid;
+  grid-template-columns: 290px 1fr;
+  min-height:calc(100vh - 78px);
+}
+
+/* Sidebar */
+.sidebar{
+  position:sticky;
+  top:78px;
+  height:calc(100vh - 78px);
+  padding:18px;
+  background:linear-gradient(180deg, rgba(17,27,46,.98), rgba(12,20,35,.98));
+  border-left:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--shadow);
+  overflow:auto;
+}
+.sidebar .box{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:16px;
+}
+.sidebar h3{
+  margin:0 0 12px 0;
+  font-size:18px;
+}
+.nav-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  margin-bottom:8px;
+  border-radius:14px;
+  text-decoration:none;
+  color:var(--text);
+  transition:.25s ease;
+  border:1px solid transparent;
+}
+.nav-link i{
+  color:var(--blue);
+  width:18px;
+  text-align:center;
+}
+.nav-link:hover{
+  background:rgba(56,189,248,.10);
+  border-color:rgba(56,189,248,.18);
+  transform:translateX(-4px);
+}
+.nav-link.active{
+  background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(74,222,128,.12));
+  border-color:rgba(255,255,255,.08);
+}
+
+/* Content */
 .content{
-margin-right:260px;
-padding:30px;
-width:100%;
+  padding:24px;
+}
+.hero{
+  background:linear-gradient(135deg, rgba(22,35,58,.98), rgba(17,27,46,.95));
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:24px;
+  padding:28px;
+  box-shadow:var(--shadow);
+  margin-bottom:22px;
+}
+.hero h1{
+  margin:0 0 12px 0;
+  font-size:clamp(28px, 4vw, 52px);
+  line-height:1.15;
+}
+.hero p{
+  margin:0;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.9;
+  max-width:950px;
 }
 
-/* CARD */
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:18px;
+}
 .card{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-transition:0.3s;
+  grid-column:span 12;
+  background:linear-gradient(180deg, rgba(22,35,58,.96), rgba(17,27,46,.96));
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  opacity:0;
+  transform:translateY(18px);
+  transition:.6s ease;
 }
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
+.card.show{
+  opacity:1;
+  transform:translateY(0);
 }
-
-/* STATS */
+.card h2{
+  margin:0 0 16px 0;
+  font-size:26px;
+}
+.sub{
+  color:var(--muted);
+  line-height:1.9;
+  margin:0 0 16px 0;
+}
 .stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.stat{
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+}
+.stat .label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--muted);
+  margin-bottom:12px;
+  font-weight:700;
+}
+.stat .value{
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:.3px;
+}
+.blue{color:var(--blue)}
+.green{color:var(--green)}
+.gold{color:var(--gold)}
+
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.kpi{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;
+  padding:16px;
+}
+.kpi .n{
+  font-size:28px;
+  font-weight:800;
+  margin-top:8px;
+}
+.kpi .t{
+  color:var(--muted);
+  font-weight:700;
 }
 
-.stat-box{
-background:#334155;
-padding:20px;
-border-radius:12px;
-text-align:center;
+.table-wrap{
+  overflow:auto;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.06);
 }
-
-/* TABLE */
 table{
-width:100%;
-border-collapse:collapse;
+  width:100%;
+  border-collapse:collapse;
+  min-width:560px;
+  background:rgba(255,255,255,.02);
 }
-
 th,td{
-padding:10px;
-border-bottom:1px solid #444;
+  padding:14px 12px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+th{
+  background:rgba(255,255,255,.04);
+  font-size:15px;
+}
+td{color:#dbe6f7}
+
+.charts{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.chart-box{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;
+  padding:14px;
+}
+.chart-box h3{
+  margin:8px 8px 18px;
 }
 
-/* LOGIN */
-.login{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#0f172a;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
+.footer{
+  text-align:center;
+  color:var(--muted);
+  padding:24px 0 6px;
+  font-size:14px;
 }
 
-.login-box{
-background:#1e293b;
-padding:30px;
-border-radius:12px;
-text-align:center;
+/* overlay */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(3px);
+  z-index:900;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+}
+.overlay.active{
+  opacity:1;
+  pointer-events:auto;
 }
 
-input{
-padding:10px;
-width:200px;
-margin:10px;
+/* Mobile */
+@media (max-width: 980px){
+  .page{
+    grid-template-columns:1fr;
+  }
+  .sidebar{
+    position:fixed;
+    top:78px;
+    right:-320px;
+    width:290px;
+    z-index:1001;
+    transition:.25s ease;
+  }
+  .sidebar.active{
+    right:0;
+  }
+  .content{
+    padding:18px;
+  }
+  .stats,.charts,.kpis{
+    grid-template-columns:1fr;
+  }
 }
-
-button{
-padding:10px 20px;
-cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-.sidebar{right:-260px;}
-.sidebar.active{right:0;}
-.content{margin-right:0;}
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div class="login" id="login">
-<div class="login-box">
-<h2>🔐 تسجيل الدخول</h2>
-<input type="text" placeholder="username" id="user"><br>
-<input type="password" placeholder="password" id="pass"><br>
-<button onclick="login()">دخول</button>
-</div>
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة"><i class="fa-solid fa-bars"></i></button>
+  <div class="brand"><i class="fa-solid fa-chart-column"></i> لوحة تحكم إحصائية</div>
+  <div style="width:46px"></div>
 </div>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<div class="overlay" id="overlay"></div>
 
-<div class="sidebar" id="menu">
-<h2>📊 Dashboard</h2>
-<a href="#home">الرئيسية</a>
-<a href="#stats">الإحصائيات</a>
-<a href="#charts">الرسوم</a>
-<a href="#tables">الجداول</a>
-</div>
+<div class="page">
+  <aside class="sidebar" id="sidebar">
+    <div class="box">
+      <h3>الأقسام</h3>
+      <a class="nav-link active" href="#home"><i class="fa-solid fa-house"></i> الرئيسية</a>
+      <a class="nav-link" href="#overview"><i class="fa-solid fa-eye"></i> نظرة عامة</a>
+      <a class="nav-link" href="#muslims"><i class="fa-solid fa-mosque"></i> المسلمون</a>
+      <a class="nav-link" href="#christians"><i class="fa-solid fa-cross"></i> المسيحيون</a>
+      <a class="nav-link" href="#compare"><i class="fa-solid fa-scale-balanced"></i> المقارنة</a>
+      <a class="nav-link" href="#charts"><i class="fa-solid fa-chart-line"></i> الرسوم البيانية</a>
+      <a class="nav-link" href="#future"><i class="fa-solid fa-calendar-days"></i> التوقعات</a>
+      <a class="nav-link" href="#sources"><i class="fa-solid fa-book"></i> المصادر</a>
+    </div>
 
-<div class="content">
+    <div class="box">
+      <h3>ملخص سريع</h3>
+      <div class="kpi" style="margin-bottom:12px">
+        <div class="t">المسلمين</div>
+        <div class="n blue">2.0–2.1B</div>
+      </div>
+      <div class="kpi">
+        <div class="t">المسيحيين</div>
+        <div class="n green">2.66–2.7B</div>
+      </div>
+    </div>
+  </aside>
 
-<h1 id="home">📊 لوحة تحكم احترافية</h1>
+  <main class="content">
+    <section class="hero" id="home">
+      <h1>عدد المسلمين والمسيحيين في العالم 2026</h1>
+      <p>
+        لوحة إحصائية منظمة تعرض الأرقام الحالية، المقارنات، التوزيع القاري، والاتجاهات المستقبلية
+        بطريقة سلسة ومناسبة لواجهة تحليل حديثة.
+      </p>
+    </section>
 
-<!-- STATS -->
-<div class="stats" id="stats">
+    <section class="grid">
+      <div class="card" id="overview">
+        <h2>نظرة عامة</h2>
+        <div class="stats">
+          <div class="stat">
+            <div class="label"><i class="fa-solid fa-mosque blue"></i> المسلمون</div>
+            <div class="value blue">2.0 – 2.1B</div>
+            <p class="sub">تقدير 2025–2026</p>
+          </div>
+          <div class="stat">
+            <div class="label"><i class="fa-solid fa-cross green"></i> المسيحيون</div>
+            <div class="value green">2.66 – 2.7B</div>
+            <p class="sub">تقدير 2025–2026</p>
+          </div>
+        </div>
+      </div>
 
-<div class="stat-box">
-<h3>🕌 المسلمين</h3>
-<h1 id="muslimCount">0</h1>
-</div>
+      <div class="card" id="muslims">
+        <h2>المسلمون</h2>
+        <p class="sub">التوزيع القاري التقريبي للمسلمين حول العالم.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>القارة</th>
+                <th>العدد التقريبي</th>
+                <th>النسبة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>آسيا</td><td>1.25 مليار</td><td>≈ 60–65%</td></tr>
+              <tr><td>أفريقيا</td><td>450 مليون</td><td>≈ 20–25%</td></tr>
+              <tr><td>أوروبا</td><td>60 مليون</td><td>≈ 3%</td></tr>
+              <tr><td>أمريكا الشمالية</td><td>8 مليون</td><td>≈ 0.4%</td></tr>
+              <tr><td>أمريكا الجنوبية</td><td>2 مليون</td><td>≈ 0.1%</td></tr>
+              <tr><td>أوقيانوسيا</td><td>1 مليون</td><td>≈ 0.05%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-<div class="stat-box">
-<h3>✝️ المسيحيين</h3>
-<h1 id="christianCount">0</h1>
-</div>
+      <div class="card" id="christians">
+        <h2>المسيحيون</h2>
+        <p class="sub">التوزيع القاري التقريبي للمسيحيين حول العالم.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>القارة</th>
+                <th>العدد التقريبي</th>
+                <th>النسبة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>أفريقيا</td><td>750 مليون</td><td>≈ 28%</td></tr>
+              <tr><td>أمريكا اللاتينية</td><td>620 مليون</td><td>≈ 23%</td></tr>
+              <tr><td>أوروبا</td><td>550 مليون</td><td>≈ 20%</td></tr>
+              <tr><td>آسيا</td><td>420 مليون</td><td>≈ 16%</td></tr>
+              <tr><td>أمريكا الشمالية</td><td>280 مليون</td><td>≈ 10%</td></tr>
+              <tr><td>أوقيانوسيا</td><td>30 مليون</td><td>≈ 1%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-</div>
+      <div class="card" id="compare">
+        <h2>المقارنة</h2>
+        <div class="kpis">
+          <div class="kpi">
+            <div class="t">فرق تقريبي</div>
+            <div class="n">≈ 600M</div>
+          </div>
+          <div class="kpi">
+            <div class="t">أكبر ديانة حالياً</div>
+            <div class="n">المسيحية</div>
+          </div>
+          <div class="kpi">
+            <div class="t">المسلمين من سكان العالم</div>
+            <div class="n">≈ 25%</div>
+          </div>
+          <div class="kpi">
+            <div class="t">المسيحيين من سكان العالم</div>
+            <div class="n">≈ 33%</div>
+          </div>
+        </div>
+      </div>
 
-<!-- CHART -->
-<div class="card" id="charts">
-<h2><i class="fa fa-chart-line"></i> التحليل</h2>
-<canvas id="chart"></canvas>
-</div>
+      <div class="card" id="charts">
+        <h2>الرسوم البيانية</h2>
+        <div class="charts">
+          <div class="chart-box">
+            <h3>المقارنة الحالية</h3>
+            <canvas id="barChart"></canvas>
+          </div>
+          <div class="chart-box">
+            <h3>الاتجاه عبر السنوات</h3>
+            <canvas id="lineChart"></canvas>
+          </div>
+        </div>
+      </div>
 
-<!-- TABLE -->
-<div class="card" id="tables">
-<h2>📋 توزيع القارات</h2>
+      <div class="card" id="future">
+        <h2>التوقعات المستقبلية</h2>
+        <div class="stats">
+          <div class="stat">
+            <div class="label"><i class="fa-solid fa-calendar blue"></i> المسلمون 2030</div>
+            <div class="value blue">2.2B</div>
+          </div>
+          <div class="stat">
+            <div class="label"><i class="fa-solid fa-calendar blue"></i> المسلمون 2035</div>
+            <div class="value blue">2.4B</div>
+          </div>
+          <div class="stat">
+            <div class="label"><i class="fa-solid fa-calendar green"></i> المسلمون 2050</div>
+            <div class="value green">2.8B</div>
+          </div>
+          <div class="stat">
+            <div class="label"><i class="fa-solid fa-calendar green"></i> المسيحيون 2050</div>
+            <div class="value green">3.3B</div>
+          </div>
+        </div>
+      </div>
 
-<table>
-<tr><th>القارة</th><th>مسلمين</th><th>مسيحيين</th></tr>
-<tr><td>آسيا</td><td>1.25B</td><td>420M</td></tr>
-<tr><td>أفريقيا</td><td>450M</td><td>750M</td></tr>
-<tr><td>أوروبا</td><td>60M</td><td>550M</td></tr>
-</table>
+      <div class="card" id="sources">
+        <h2>المصادر</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الجهة</th>
+                <th>نوع المصدر</th>
+                <th>ملاحظة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Pew Research Center</td><td>إحصائيات ديموغرافية</td><td>أرقام عالمية ومقارنات</td></tr>
+              <tr><td>Gordon-Conwell (CSGC)</td><td>Christianity data</td><td>تقديرات المسيحية عالميًا</td></tr>
+              <tr><td>World Population Review</td><td>مراجعة سكانية</td><td>تلخيصات سريعة</td></tr>
+              <tr><td>PRB</td><td>Population data</td><td>اتجاهات سكانية</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-</div>
-
+      <div class="footer">
+        © 2026 | لوحة إحصائيات تفاعلية
+      </div>
+    </section>
+  </main>
 </div>
 
 <script>
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+const menuBtn = document.getElementById('menuBtn');
 
-/* LOGIN */
-function login(){
-let u = document.getElementById("user").value;
-let p = document.getElementById("pass").value;
-
-if(u==="admin" && p==="1234"){
-document.getElementById("login").style.display="none";
-}else{
-alert("خطأ");
+function openMenu(){
+  sidebar.classList.add('active');
+  overlay.classList.add('active');
 }
+function closeMenu(){
+  sidebar.classList.remove('active');
+  overlay.classList.remove('active');
 }
-
-/* MENU */
 function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
 }
 
-/* COUNTER ANIMATION */
-function animate(id, target){
-let el = document.getElementById(id);
-let count = 0;
-let step = target/100;
+menuBtn.addEventListener('click', toggleMenu);
+overlay.addEventListener('click', closeMenu);
 
-let interval = setInterval(()=>{
-count += step;
-if(count >= target){
-count = target;
-clearInterval(interval);
-}
-el.innerText = count.toFixed(1) + "B";
-},20);
-}
-
-animate("muslimCount",2.1);
-animate("christianCount",2.7);
-
-/* CHART */
-const ctx = document.getElementById('chart');
-
-new Chart(ctx, {
-type:'line',
-data:{
-labels:['2020','2022','2024','2026'],
-datasets:[
-{
-label:'المسلمين',
-data:[1.8,1.9,2.0,2.1],
-borderColor:'#38bdf8'
-},
-{
-label:'المسيحيين',
-data:[2.5,2.6,2.65,2.7],
-borderColor:'#4ade80'
-}
-]
-}
+document.querySelectorAll('.nav-link').forEach(link=>{
+  link.addEventListener('click', ()=>{
+    if(window.innerWidth <= 980) closeMenu();
+  });
 });
 
+// Reveal on scroll
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{threshold:0.15});
+
+document.querySelectorAll('.card').forEach(card=>observer.observe(card));
+
+// Charts
+new Chart(document.getElementById('barChart'), {
+  type: 'bar',
+  data: {
+    labels: ['المسلمين', 'المسيحيين'],
+    datasets: [{
+      label: 'عدد السكان (بالمليار)',
+      data: [2.1, 2.7],
+      backgroundColor: ['#38bdf8', '#4ade80'],
+      borderWidth: 0,
+      borderRadius: 10
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#e9eef8' } }
+    },
+    scales: {
+      x: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(255,255,255,.06)' } },
+      y: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(255,255,255,.06)' } }
+    }
+  }
+});
+
+new Chart(document.getElementById('lineChart'), {
+  type: 'line',
+  data: {
+    labels: ['2020', '2022', '2024', '2026'],
+    datasets: [
+      {
+        label: 'المسلمين',
+        data: [1.8, 1.9, 2.0, 2.1],
+        borderColor: '#38bdf8',
+        backgroundColor: 'rgba(56,189,248,.15)',
+        tension: 0.35,
+        fill: true
+      },
+      {
+        label: 'المسيحيين',
+        data: [2.55, 2.62, 2.66, 2.70],
+        borderColor: '#4ade80',
+        backgroundColor: 'rgba(74,222,128,.12)',
+        tension: 0.35,
+        fill: true
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#e9eef8' } }
+    },
+    scales: {
+      x: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(255,255,255,.06)' } },
+      y: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(255,255,255,.06)' } }
+    }
+  }
+});
 </script>
 
 </body>
