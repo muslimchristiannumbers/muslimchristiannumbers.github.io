@@ -16,7 +16,7 @@
           crossorigin="anonymous"></script>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0f1a2e">
   <meta name="description" content="Muslim & Christian Numbers — منصة إحصائية تفاعلية لعرض عدد المسلمين والمسيحيين حول العالم مع مقارنة، توزيع قاري، رسوم بيانية، ومصادر موثوقة.">
   <meta name="keywords" content="Muslim & Christian Numbers, المسلمين, المسيحيين, إحصائيات المسلمين, إحصائيات المسيحيين, التوزيع القاري, الرسوم البيانية, السكان, نمو السكان">
@@ -28,6 +28,7 @@
   <meta property="og:description" content="إحصائيات تفاعلية لعدد المسلمين والمسيحيين حول العالم">
   <meta property="og:url" content="https://muslimchristiannumbers.github.io/">
   <meta property="og:site_name" content="Muslim & Christian Numbers">
+  <meta property="og:locale" content="ar_AR">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Muslim & Christian Numbers">
@@ -63,7 +64,10 @@
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:92px;
+    }
     body{
       margin:0;
       font-family:"Tajawal",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -82,6 +86,21 @@
     button,select,input{font:inherit}
     ::selection{background:rgba(56,189,248,.35)}
     :focus-visible{outline:none; box-shadow:var(--focus)}
+    img,svg,canvas{max-width:100%; display:block}
+
+    .skip-link{
+      position:absolute;
+      top:-60px;
+      right:18px;
+      z-index:4000;
+      background:#fff;
+      color:#000;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .skip-link:focus{top:16px}
 
     .loader{
       position:fixed;
@@ -104,7 +123,11 @@
       border-top-color:var(--blue-2);
       animation:spin 1s linear infinite;
     }
-    .loader .txt{color:#dbe7f8; font-weight:800; letter-spacing:.3px}
+    .loader .txt{
+      color:#dbe7f8;
+      font-weight:800;
+      letter-spacing:.3px;
+    }
     @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
     .topbar{
@@ -119,6 +142,7 @@
       background:rgba(15,23,42,.84);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(255,255,255,.06);
+      padding-top:calc(16px + env(safe-area-inset-top));
     }
 
     .brand{
@@ -129,6 +153,7 @@
       font-weight:900;
       letter-spacing:.2px;
       white-space:nowrap;
+      min-width:0;
     }
     .brand .logo{
       width:42px;
@@ -142,6 +167,12 @@
       color:var(--blue-2);
       flex:0 0 auto;
     }
+    .brand span{
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
     .topbar-meta{
       display:flex;
       align-items:center;
@@ -162,6 +193,7 @@
       font-weight:700;
       white-space:nowrap;
     }
+
     .menu-btn{
       border:0;
       background:linear-gradient(135deg, #17243c, #101a2b);
@@ -192,6 +224,7 @@
       border-left:1px solid rgba(255,255,255,.06);
       box-shadow:var(--shadow);
       overflow:auto;
+      -webkit-overflow-scrolling:touch;
     }
     .sidebar .box{
       background:rgba(255,255,255,.03);
@@ -200,7 +233,10 @@
       padding:16px;
       margin-bottom:16px;
     }
-    .sidebar h3{margin:0 0 12px 0; font-size:18px}
+    .sidebar h3{
+      margin:0 0 12px 0;
+      font-size:18px;
+    }
     .nav-link{
       display:flex;
       align-items:center;
@@ -218,6 +254,7 @@
       width:18px;
       text-align:center;
       color:var(--blue-2);
+      flex:0 0 auto;
     }
     .nav-link:hover{
       background:rgba(56,189,248,.10);
@@ -348,6 +385,7 @@
       flex-wrap:wrap;
       gap:10px;
       justify-content:flex-start;
+      align-content:flex-start;
     }
     .badge{
       display:inline-flex;
@@ -513,6 +551,7 @@
       border-radius:18px;
       border:1px solid rgba(255,255,255,.06);
       background:rgba(255,255,255,.02);
+      -webkit-overflow-scrolling:touch;
     }
     table{
       width:100%;
@@ -542,11 +581,25 @@
       border:1px solid rgba(255,255,255,.06);
       border-radius:18px;
       padding:14px;
+      position:relative;
       min-height:380px;
+      overflow:hidden;
     }
     .chart-box h3{
       margin:8px 8px 18px;
       color:#F8FAFC;
+    }
+    .chart-frame{
+      position:relative;
+      width:100%;
+      height:clamp(260px, 38vh, 420px);
+      max-height:480px;
+    }
+    .chart-frame canvas{
+      position:absolute !important;
+      inset:0;
+      width:100% !important;
+      height:100% !important;
     }
 
     .timeline{
@@ -598,6 +651,7 @@
     .source i{
       color:var(--blue-2);
       margin-top:2px;
+      flex:0 0 auto;
     }
     .source b{
       display:block;
@@ -741,13 +795,25 @@
     }
     .back-to-top.show{opacity:1}
 
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+
     @media (max-width: 1080px){
       .page{grid-template-columns:1fr}
       .sidebar{
         position:fixed;
         top:78px;
         right:-330px;
-        width:300px;
+        width:min(320px, 88vw);
         z-index:1001;
         transition:.25s ease;
       }
@@ -755,6 +821,7 @@
       .content{padding:18px}
       .two-cols{grid-template-columns:1fr}
     }
+
     @media (max-width: 920px){
       .stats,.charts,.kpis,.timeline,.source-grid{grid-template-columns:1fr}
       .stat .value{font-size:34px}
@@ -762,7 +829,14 @@
       .hero h1{font-size:clamp(28px, 8vw, 44px)}
       .hero .subtitle{font-size:16px}
       .topbar-meta{display:none}
+      .chart-box{
+        min-height:320px;
+      }
+      .chart-frame{
+        height:280px;
+      }
     }
+
     @media (max-width: 640px){
       .content{padding:14px}
       .card{padding:18px}
@@ -773,6 +847,18 @@
       .filter-row select{min-width:100%; width:100%}
       .hero-actions .btn{width:100%; justify-content:center}
       .back-to-top{left:14px; bottom:14px}
+      .chart-frame{height:240px}
+      .chart-box{min-height:290px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{
+        animation-duration:0.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.01ms !important;
+        scroll-behavior:auto !important;
+      }
     }
   </style>
 
@@ -799,20 +885,32 @@
     "keywords": "المسلمين, المسيحيين, إحصائيات دينية, سكان العالم"
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Muslim & Christian Numbers",
+    "url": "https://muslimchristiannumbers.github.io/",
+    "logo": "https://muslimchristiannumbers.github.io/logo.png"
+  }
+  </script>
 </head>
 
 <body>
-  <div class="loader" id="loader">
+  <a class="skip-link" href="#mainContent">تجاوز إلى المحتوى الرئيسي</a>
+
+  <div class="loader" id="loader" aria-hidden="true">
     <div class="ring"></div>
     <div class="txt">جاري التحميل...</div>
   </div>
 
   <header class="topbar">
-    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="sidebar">
       <i class="fa-solid fa-bars"></i>
     </button>
 
-    <div class="brand">
+    <div class="brand" aria-label="Muslim & Christian Numbers">
       <div class="logo"><i class="fa-solid fa-chart-column"></i></div>
       <span>Muslim &amp; Christian Numbers</span>
     </div>
@@ -874,7 +972,7 @@
       </div>
     </aside>
 
-    <main class="content">
+    <main class="content" id="mainContent">
       <section class="hero" id="home">
         <div class="hero-top">
           <div>
@@ -969,7 +1067,7 @@
             توزيع قاري تقريبي يوضح أين يتركز المسلمون حول العالم. الأرقام هنا تعرض الصورة العامة الحالية،
             بينما الفلتر بالأسفل يبدّل بين القارات بطريقة تفاعلية.
           </p>
-          <div class="table-wrap">
+          <div class="table-wrap" aria-label="جدول توزيع المسلمين">
             <table>
               <thead>
                 <tr>
@@ -995,7 +1093,7 @@
           <p class="sub">
             توزيع قاري تقريبي للمسيحيين حول العالم، مع إبراز مناطق الثقل الرئيسية تاريخياً وحديثاً.
           </p>
-          <div class="table-wrap">
+          <div class="table-wrap" aria-label="جدول توزيع المسيحيين">
             <table>
               <thead>
                 <tr>
@@ -1021,7 +1119,7 @@
 
           <div class="filter-row">
             <label for="continentSelect">اختر القارة:</label>
-            <select id="continentSelect">
+            <select id="continentSelect" aria-label="اختر القارة">
               <option value="global">العالم</option>
               <option value="asia">آسيا</option>
               <option value="africa">أفريقيا</option>
@@ -1035,11 +1133,15 @@
           <div class="charts">
             <div class="chart-box">
               <h3 id="chartTitle">مقارنة عالمية مباشرة</h3>
-              <canvas id="barChart" aria-label="مخطط أعمدة مقارنة عدد المسلمين والمسيحيين" role="img"></canvas>
+              <div class="chart-frame">
+                <canvas id="barChart" aria-label="مخطط أعمدة مقارنة عدد المسلمين والمسيحيين" role="img"></canvas>
+              </div>
             </div>
             <div class="chart-box">
               <h3>الاتجاه بين 2020 و 2026</h3>
-              <canvas id="lineChart" aria-label="مخطط خطي يوضح الاتجاه بين 2020 و 2026" role="img"></canvas>
+              <div class="chart-frame">
+                <canvas id="lineChart" aria-label="مخطط خطي يوضح الاتجاه بين 2020 و 2026" role="img"></canvas>
+              </div>
             </div>
           </div>
         </article>
@@ -1241,7 +1343,7 @@
               <i class="fa-solid fa-circle-check"></i>
               <div>
                 <b>تحسين الأداء</b>
-                <span>تم تفعيل lazy loading للرسوم البيانية وترك تحميلها حتى وصول المستخدم إلى قسم الرسوم.</span>
+                <span>تم تفعيل تحميل الرسوم عند الوصول إلى قسمها، مع ضبط ارتفاعات متجاوبة لكل الأجهزة.</span>
               </div>
             </div>
             <div class="info-item">
@@ -1268,13 +1370,23 @@
     const searchInput = document.getElementById('searchInput');
     const noResults = document.getElementById('noResults');
 
-    function toggleMenu(){
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
+    const isMobile = () => window.innerWidth <= 1080;
+
+    function openMenu(){
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+      menuBtn.setAttribute('aria-expanded', 'true');
     }
+
     function closeMenu(){
       sidebar.classList.remove('active');
       overlay.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleMenu(){
+      if(sidebar.classList.contains('active')) closeMenu();
+      else openMenu();
     }
 
     menuBtn.addEventListener('click', toggleMenu);
@@ -1283,14 +1395,14 @@
     document.addEventListener('click', function(e){
       const inSidebar = sidebar.contains(e.target);
       const onBtn = menuBtn.contains(e.target);
-      if(window.innerWidth <= 1080 && !inSidebar && !onBtn){
+      if(isMobile() && !inSidebar && !onBtn){
         closeMenu();
       }
     });
 
     document.querySelectorAll('.nav-link').forEach(link=>{
       link.addEventListener('click', ()=>{
-        if(window.innerWidth <= 1080) closeMenu();
+        if(isMobile()) closeMenu();
       });
     });
 
@@ -1300,7 +1412,10 @@
       });
     },{threshold:0.12});
 
-    document.querySelectorAll('.card').forEach(card=>observer.observe(card));
+    document.querySelectorAll('.card').forEach(card=>{
+      if(card.style.opacity !== '1') observer.observe(card);
+      else card.classList.add('show');
+    });
 
     const sections = ['home','overview','compare','muslims','christians','charts','future','articles','faq','sources','method']
       .map(id=>document.getElementById(id))
@@ -1339,52 +1454,62 @@
     animateNumber(document.getElementById('christianCount'), 2.7);
 
     const regionData = {
-      global: {
-        title: 'مقارنة عالمية مباشرة',
-        muslims: 2.1,
-        christians: 2.7
-      },
-      asia: {
-        title: 'قارة آسيا',
-        muslims: 1.25,
-        christians: 0.42
-      },
-      africa: {
-        title: 'قارة أفريقيا',
-        muslims: 0.45,
-        christians: 0.75
-      },
-      europe: {
-        title: 'قارة أوروبا',
-        muslims: 0.06,
-        christians: 0.55
-      },
-      northAmerica: {
-        title: 'أمريكا الشمالية',
-        muslims: 0.008,
-        christians: 0.28
-      },
-      latinAmerica: {
-        title: 'أمريكا اللاتينية',
-        muslims: 0.002,
-        christians: 0.62
-      },
-      oceania: {
-        title: 'أوقيانوسيا',
-        muslims: 0.001,
-        christians: 0.03
-      }
+      global: { title: 'مقارنة عالمية مباشرة', muslims: 2.1, christians: 2.7 },
+      asia: { title: 'قارة آسيا', muslims: 1.25, christians: 0.42 },
+      africa: { title: 'قارة أفريقيا', muslims: 0.45, christians: 0.75 },
+      europe: { title: 'قارة أوروبا', muslims: 0.06, christians: 0.55 },
+      northAmerica: { title: 'أمريكا الشمالية', muslims: 0.008, christians: 0.28 },
+      latinAmerica: { title: 'أمريكا اللاتينية', muslims: 0.002, christians: 0.62 },
+      oceania: { title: 'أوقيانوسيا', muslims: 0.001, christians: 0.03 }
     };
 
     const chartTitle = document.getElementById('chartTitle');
     const continentSelect = document.getElementById('continentSelect');
     const chartsSection = document.getElementById('charts');
+
     let barChart = null;
     let lineChart = null;
     let chartsInitialized = false;
 
+    function chartBaseOptions(isLine = false){
+      return {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 850 },
+        interaction: isLine ? { mode: 'index', intersect: false } : undefined,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#E8EAED',
+              font: { family: 'Tajawal' }
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(10,17,32,.95)',
+            titleColor: '#fff',
+            bodyColor: '#E8EAED',
+            borderColor: 'rgba(255,255,255,.08)',
+            borderWidth: 1,
+            padding: 12
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#C8D1E2', font: { family: 'Tajawal' } },
+            grid: { display: false }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#C8D1E2', font: { family: 'Tajawal' } },
+            grid: { color: 'rgba(255,255,255,.06)' }
+          }
+        }
+      };
+    }
+
     function buildBarChart(){
       const barCtx = document.getElementById('barChart');
+
       barChart = new Chart(barCtx, {
         type: 'bar',
         data: {
@@ -1394,32 +1519,33 @@
             data: [2.1, 2.7],
             backgroundColor: ['#38BDF8', '#4ADE80'],
             borderWidth: 0,
-            borderRadius: 12
+            borderRadius: 12,
+            barThickness: 'flex',
+            maxBarThickness: 86
           }]
         },
         options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              labels: { color: '#E8EAED', font: { family: 'Tajawal' } }
-            },
-            tooltip: {
-              callbacks: {
-                label: function(context){
-                  return `${context.dataset.label}: ${context.raw}B`;
-                }
-              }
-            }
-          },
+          ...chartBaseOptions(false),
           scales: {
             x: {
               ticks: { color: '#C8D1E2', font: { family: 'Tajawal' } },
-              grid: { color: 'rgba(255,255,255,.06)' }
+              grid: { display: false }
             },
             y: {
+              beginAtZero: true,
+              suggestedMax: 3.1,
               ticks: { color: '#C8D1E2', font: { family: 'Tajawal' } },
               grid: { color: 'rgba(255,255,255,.06)' }
+            }
+          },
+          plugins: {
+            ...chartBaseOptions(false).plugins,
+            tooltip: {
+              callbacks: {
+                label: function(context){
+                  return `${context.dataset.label}: ${context.raw} مليار`;
+                }
+              }
             }
           }
         }
@@ -1428,6 +1554,7 @@
 
     function buildLineChart(){
       const lineCtx = document.getElementById('lineChart');
+
       lineChart = new Chart(lineCtx, {
         type: 'line',
         data: {
@@ -1441,7 +1568,8 @@
               tension: 0.35,
               fill: true,
               borderWidth: 3,
-              pointRadius: 4
+              pointRadius: 4,
+              pointHoverRadius: 6
             },
             {
               label: 'المسيحيين',
@@ -1451,24 +1579,22 @@
               tension: 0.35,
               fill: true,
               borderWidth: 3,
-              pointRadius: 4
+              pointRadius: 4,
+              pointHoverRadius: 6
             }
           ]
         },
         options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              labels: { color: '#E8EAED', font: { family: 'Tajawal' } }
-            }
-          },
+          ...chartBaseOptions(true),
           scales: {
             x: {
               ticks: { color: '#C8D1E2', font: { family: 'Tajawal' } },
-              grid: { color: 'rgba(255,255,255,.06)' }
+              grid: { display: false }
             },
             y: {
+              beginAtZero: false,
+              suggestedMin: 1.6,
+              suggestedMax: 2.9,
               ticks: { color: '#C8D1E2', font: { family: 'Tajawal' } },
               grid: { color: 'rgba(255,255,255,.06)' }
             }
@@ -1486,7 +1612,7 @@
       }
     }
 
-    continentSelect.addEventListener('change', e=>setRegion(e.target.value));
+    continentSelect.addEventListener('change', e => setRegion(e.target.value));
 
     const chartsObserver = new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
@@ -1500,6 +1626,11 @@
     },{threshold:0.15});
 
     chartsObserver.observe(chartsSection);
+
+    window.addEventListener('resize', ()=>{
+      if(barChart) barChart.resize();
+      if(lineChart) lineChart.resize();
+    });
 
     window.addEventListener('scroll', ()=>{
       if(window.scrollY > 400){
@@ -1526,10 +1657,15 @@
       });
 
       noResults.style.display = matched === 0 ? 'block' : 'none';
+
       if(query === ''){
         cards.forEach(card=>card.style.display = '');
         noResults.style.display = 'none';
       }
+    });
+
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeMenu();
     });
   </script>
 </body>
