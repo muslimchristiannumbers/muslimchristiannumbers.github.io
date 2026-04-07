@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0f1a2e">
   <meta name="description" content="Muslim & Christian Numbers — منصة إحصائية تفاعلية لعرض عدد المسلمين والمسيحيين حول العالم مع مقارنة، توزيع قاري، رسوم بيانية، ومصادر موثوقة.">
-  <meta name="keywords" content="Muslim & Christian Numbers, المسلمين, المسيحيين, إحصائيات المسلمين, إحصائيات المسيحيين, التوزيع القاري, الرسوم البيانية, السكان, نمو السكان">
+  <meta name="keywords" content="عدد المسلمين, عدد المسيحيين, عدد مسلمين 2026, عدد مسيحيين 2026, كم عدد المسلمين في العالم, كم عدد المسيحيين في العالم, المسلمين, المسيحيين, إحصائيات المسلمين, إحصائيات المسيحيين, التوزيع القاري, الرسوم البيانية, السكان">
   <meta name="author" content="Muslim & Christian Numbers">
   <link rel="canonical" href="https://muslimchristiannumbers.github.io/">
 
@@ -843,6 +843,38 @@
       font-size:14px;
     }
 
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .contact-card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:16px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .contact-card i{
+      color:var(--blue-2);
+      margin-top:2px;
+      flex:0 0 auto;
+      font-size:18px;
+    }
+    .contact-card b{
+      display:block;
+      margin-bottom:6px;
+    }
+    .contact-card a,
+    .contact-card span{
+      color:var(--muted);
+      text-decoration:none;
+      line-height:1.8;
+      word-break:break-word;
+    }
+
     .back-to-top{
       position:fixed;
       bottom:20px;
@@ -893,17 +925,91 @@
     }
 
     @media (max-width: 920px){
-      .stats,.charts,.kpis,.timeline,.source-grid,.map-grid{grid-template-columns:1fr}
+      .stats,
+      .charts,
+      .kpis,
+      .timeline,
+      .source-grid,
+      .map-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
       .stat .value{font-size:34px}
       .hero{padding:24px}
       .hero h1{font-size:clamp(28px, 8vw, 44px)}
       .hero .subtitle{font-size:16px}
-      .topbar-meta{display:none}
       .chart-box{
         min-height:320px;
       }
       .chart-frame{
         height:280px;
+      }
+
+      .table-wrap{
+        border-radius:16px;
+      }
+
+      table,
+      thead,
+      tbody,
+      tr,
+      th,
+      td{
+        display:block;
+        width:100%;
+      }
+
+      table{
+        min-width:0;
+      }
+
+      thead{
+        display:none;
+      }
+
+      tbody tr{
+        margin:0 0 12px;
+        border:1px solid rgba(255,255,255,.06);
+        border-radius:16px;
+        overflow:hidden;
+        background:rgba(255,255,255,.04);
+      }
+
+      tbody td{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        text-align:right;
+        padding:12px 14px;
+        border-bottom:1px solid rgba(255,255,255,.08);
+        min-height:52px;
+      }
+
+      tbody td:last-child{
+        border-bottom:none;
+      }
+
+      tbody td::before{
+        content:attr(data-label);
+        color:#c8d1e2;
+        font-weight:800;
+        flex:0 0 auto;
+      }
+
+      .topbar-meta{
+        gap:8px;
+      }
+
+      .topbar-meta .pill{
+        display:none;
+      }
+
+      .lang-btn{
+        min-width:72px;
+        height:42px;
+        padding:0 12px;
       }
     }
 
@@ -914,12 +1020,18 @@
       .brand{font-size:16px}
       .brand .logo{width:38px;height:38px}
       .menu-btn{width:42px;height:42px}
-      .lang-btn{height:42px; min-width:76px}
+      .lang-btn{height:42px; min-width:72px}
       .filter-row select{min-width:100%; width:100%}
       .hero-actions .btn{width:100%; justify-content:center}
       .back-to-top{left:14px; bottom:14px}
       .chart-frame{height:240px}
       .chart-box{min-height:290px}
+      .topbar{
+        gap:10px;
+      }
+      .brand span{
+        max-width:180px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1012,6 +1124,7 @@
         <a class="nav-link" href="#faq"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">الأسئلة الشائعة</span></a>
         <a class="nav-link" href="#sources"><i class="fa-solid fa-book"></i> <span data-i18n="nav_sources">المصادر</span></a>
         <a class="nav-link" href="#method"><i class="fa-solid fa-clipboard-check"></i> <span data-i18n="nav_method">المنهجية</span></a>
+        <a class="nav-link" href="#contact"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav_contact">اتصل بنا</span></a>
         <a class="nav-link" href="about.html"><i class="fa-solid fa-circle-info"></i> <span data-i18n="nav_about">من نحن</span></a>
         <a class="nav-link" href="privacy.html"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="nav_privacy">سياسة الخصوصية</span></a>
         <a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav_contact">اتصل بنا</span></a>
@@ -1155,12 +1268,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td>آسيا</td><td>1.25 مليار</td><td data-i18n="largest_block">الكتلة الأكبر</td></tr>
-                <tr><td>أفريقيا</td><td>450 مليون</td><td data-i18n="high_growth">نمو مرتفع</td></tr>
-                <tr><td>أوروبا</td><td>60 مليون</td><td data-i18n="lower_share">نسبة أقل</td></tr>
-                <tr><td>أمريكا الشمالية</td><td>8 مليون</td><td data-i18n="urban_clusters">تجمعات حضرية</td></tr>
-                <tr><td>أمريكا الجنوبية</td><td>2 مليون</td><td data-i18n="less_spread">أقل انتشاراً</td></tr>
-                <tr><td>أوقيانوسيا</td><td>1 مليون</td><td data-i18n="small_cluster">تجمع صغير</td></tr>
+                <tr><td data-label="القارة">آسيا</td><td data-label="العدد التقريبي">1.25 مليار</td><td data-label="ملاحظة" data-i18n="largest_block">الكتلة الأكبر</td></tr>
+                <tr><td data-label="القارة">أفريقيا</td><td data-label="العدد التقريبي">450 مليون</td><td data-label="ملاحظة" data-i18n="high_growth">نمو مرتفع</td></tr>
+                <tr><td data-label="القارة">أوروبا</td><td data-label="العدد التقريبي">60 مليون</td><td data-label="ملاحظة" data-i18n="lower_share">نسبة أقل</td></tr>
+                <tr><td data-label="القارة">أمريكا الشمالية</td><td data-label="العدد التقريبي">8 مليون</td><td data-label="ملاحظة" data-i18n="urban_clusters">تجمعات حضرية</td></tr>
+                <tr><td data-label="القارة">أمريكا الجنوبية</td><td data-label="العدد التقريبي">2 مليون</td><td data-label="ملاحظة" data-i18n="less_spread">أقل انتشاراً</td></tr>
+                <tr><td data-label="القارة">أوقيانوسيا</td><td data-label="العدد التقريبي">1 مليون</td><td data-label="ملاحظة" data-i18n="small_cluster">تجمع صغير</td></tr>
               </tbody>
             </table>
           </div>
@@ -1181,12 +1294,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td>أفريقيا</td><td>750 مليون</td><td data-i18n="growth_engine">محرك النمو</td></tr>
-                <tr><td>أمريكا اللاتينية</td><td>620 مليون</td><td data-i18n="large_base">قاعدة ضخمة</td></tr>
-                <tr><td>أوروبا</td><td>550 مليون</td><td data-i18n="relative_decline">تراجع نسبي</td></tr>
-                <tr><td>آسيا</td><td>420 مليون</td><td data-i18n="wide_spread">انتشار واسع</td></tr>
-                <tr><td>أمريكا الشمالية</td><td>280 مليون</td><td data-i18n="relatively_stable">ثابت نسبياً</td></tr>
-                <tr><td>أوقيانوسيا</td><td>30 مليون</td><td data-i18n="small_relative">صغيرة نسبياً</td></tr>
+                <tr><td data-label="القارة">أفريقيا</td><td data-label="العدد التقريبي">750 مليون</td><td data-label="ملاحظة" data-i18n="growth_engine">محرك النمو</td></tr>
+                <tr><td data-label="القارة">أمريكا اللاتينية</td><td data-label="العدد التقريبي">620 مليون</td><td data-label="ملاحظة" data-i18n="large_base">قاعدة ضخمة</td></tr>
+                <tr><td data-label="القارة">أوروبا</td><td data-label="العدد التقريبي">550 مليون</td><td data-label="ملاحظة" data-i18n="relative_decline">تراجع نسبي</td></tr>
+                <tr><td data-label="القارة">آسيا</td><td data-label="العدد التقريبي">420 مليون</td><td data-label="ملاحظة" data-i18n="wide_spread">انتشار واسع</td></tr>
+                <tr><td data-label="القارة">أمريكا الشمالية</td><td data-label="العدد التقريبي">280 مليون</td><td data-label="ملاحظة" data-i18n="relatively_stable">ثابت نسبياً</td></tr>
+                <tr><td data-label="القارة">أوقيانوسيا</td><td data-label="العدد التقريبي">30 مليون</td><td data-label="ملاحظة" data-i18n="small_relative">صغيرة نسبياً</td></tr>
               </tbody>
             </table>
           </div>
@@ -1484,6 +1597,37 @@
           </div>
         </article>
 
+        <article class="card" id="contact">
+          <h2 data-i18n="nav_contact">اتصل بنا</h2>
+          <p class="sub">
+            للتواصل المباشر بخصوص البيانات أو التعاون أو التعديلات، استخدم معلومات الاتصال التالية.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <b>Email</b>
+                <a href="mailto:muslimchristiannumbers@gmail.com">muslimchristiannumbers@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fa-solid fa-globe"></i>
+              <div>
+                <b>Website</b>
+                <a href="https://muslimchristiannumbers.github.io/" target="_blank" rel="noopener">muslimchristiannumbers.github.io</a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fa-solid fa-share-nodes"></i>
+              <div>
+                <b>Social</b>
+                <span>يمكن إضافة روابط الشبكات الاجتماعية لاحقًا هنا.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
         <div class="card">
           <h2 id="contactPreviewTitle">من نحن / الخصوصية / اتصل بنا</h2>
           <p class="sub" id="contactPreviewDesc">
@@ -1751,6 +1895,56 @@
       if(el) el.textContent = value;
     }
 
+    function setHTML(selector, value){
+      const el = document.querySelector(selector);
+      if(el) el.innerHTML = value;
+    }
+
+    function updateChartLabels(lang){
+      if(chartTitle){
+        chartTitle.textContent = lang === 'ar' ? 'مقارنة عالمية مباشرة' : 'Direct global comparison';
+      }
+
+      if(continentSelect){
+        const labels = {
+          global: lang === 'ar' ? 'العالم' : 'Global',
+          asia: lang === 'ar' ? 'آسيا' : 'Asia',
+          africa: lang === 'ar' ? 'أفريقيا' : 'Africa',
+          europe: lang === 'ar' ? 'أوروبا' : 'Europe',
+          northAmerica: lang === 'ar' ? 'أمريكا الشمالية' : 'North America',
+          latinAmerica: lang === 'ar' ? 'أمريكا اللاتينية' : 'Latin America',
+          oceania: lang === 'ar' ? 'أوقيانوسيا' : 'Oceania'
+        };
+        [...continentSelect.options].forEach(option=>{
+          const value = option.value;
+          if(labels[value]) option.textContent = labels[value];
+        });
+      }
+
+      if(barChart){
+        barChart.data.datasets[0].label = lang === 'ar' ? 'عدد السكان (بالمليار)' : 'Population (billions)';
+        barChart.options.plugins.tooltip.callbacks.label = function(context){
+          return lang === 'ar'
+            ? `${context.dataset.label}: ${context.raw} مليار`
+            : `${context.dataset.label}: ${context.raw} billion`;
+        };
+        barChart.update();
+      }
+
+      if(lineChart){
+        lineChart.data.datasets[0].label = lang === 'ar' ? 'المسلمين' : 'Muslims';
+        lineChart.data.datasets[1].label = lang === 'ar' ? 'المسيحيين' : 'Christians';
+        lineChart.update();
+      }
+
+      if(pieChart){
+        pieChart.data.labels = lang === 'ar'
+          ? ['المسلمون', 'المسيحيون', 'أديان/غير ذلك']
+          : ['Muslims', 'Christians', 'Other religions'];
+        pieChart.update();
+      }
+    }
+
     function applyLanguage(lang){
       currentLang = lang;
       htmlEl.lang = lang;
@@ -1762,8 +1956,8 @@
         : 'Muslim & Christian Numbers | Muslims and Christians Statistics 2026';
 
       setText('#brandText', t.brand);
-      setText('#topPill1', lang === 'ar' ? 'تحديث 2026' : 'Updated 2026');
-      setText('#topPill2', lang === 'ar' ? 'بيانات منظمة' : 'Structured data');
+      setHTML('#topPill1', `<i class="fa-regular fa-clock"></i> ${lang === 'ar' ? 'تحديث 2026' : 'Updated 2026'}`);
+      setHTML('#topPill2', `<i class="fa-solid fa-shield-halved"></i> ${lang === 'ar' ? 'بيانات منظمة' : 'Structured data'}`);
       setText('#navTitle', lang === 'ar' ? 'الأقسام' : 'Sections');
       setText('#quickTitle', t.quickTitle);
       setText('#linksTitle', t.linksTitle);
@@ -1777,11 +1971,9 @@
       setText('#heroTitle', t.hero_title);
       setText('#heroSubtitle', t.hero_subtitle);
       setText('#heroDesc', t.hero_desc);
-      setText('#btnExplore', (lang === 'ar' ? '<i class="fa-solid fa-arrow-down"></i> استكشاف البيانات' : '<i class="fa-solid fa-arrow-down"></i> Explore data'));
-      setText('#btnSources', (lang === 'ar' ? '<i class="fa-solid fa-book-open"></i> عرض المصادر' : '<i class="fa-solid fa-book-open"></i> View sources'));
 
-      document.getElementById('btnExplore').innerHTML = '<i class="fa-solid fa-arrow-down"></i> ' + t.btn_explore;
-      document.getElementById('btnSources').innerHTML = '<i class="fa-solid fa-book-open"></i> ' + t.btn_sources;
+      setHTML('#btnExplore', `<i class="fa-solid fa-arrow-down"></i> ${t.btn_explore}`);
+      setHTML('#btnSources', `<i class="fa-solid fa-book-open"></i> ${t.btn_sources}`);
 
       setText('#contactPreviewTitle', t.contactPreviewTitle);
       setText('#contactPreviewDesc', t.contactPreviewDesc);
@@ -1794,21 +1986,6 @@
 
       updateChartLabels(lang);
       setRegion(continentSelect.value);
-      chartInstanceTitleSync(lang);
-    }
-
-    function chartInstanceTitleSync(lang){
-      const cont = continentSelect.value;
-      const map = {
-        global: lang === 'ar' ? 'مقارنة عالمية مباشرة' : 'Direct global comparison',
-        asia: lang === 'ar' ? 'قارة آسيا' : 'Asia',
-        africa: lang === 'ar' ? 'قارة أفريقيا' : 'Africa',
-        europe: lang === 'ar' ? 'قارة أوروبا' : 'Europe',
-        northAmerica: lang === 'ar' ? 'أمريكا الشمالية' : 'North America',
-        latinAmerica: lang === 'ar' ? 'أمريكا اللاتينية' : 'Latin America',
-        oceania: lang === 'ar' ? 'أوقيانوسيا' : 'Oceania'
-      };
-      chartTitle.textContent = map[cont] || map.global;
     }
 
     langBtn.addEventListener('click', ()=>{
@@ -1860,7 +2037,7 @@
       else card.classList.add('show');
     });
 
-    const sections = ['home','overview','compare','muslims','christians','charts','map','future','articles','faq','sources','method']
+    const sections = ['home','overview','compare','muslims','christians','charts','map','future','articles','faq','sources','method','contact']
       .map(id=>document.getElementById(id))
       .filter(Boolean);
 
@@ -1978,7 +2155,7 @@
             tooltip: {
               callbacks: {
                 label: function(context){
-                  return `${context.dataset.label}: ${context.raw} مليار`;
+                  return `${context.dataset.label}: ${context.raw} ${currentLang === 'ar' ? 'مليار' : 'billion'}`;
                 }
               }
             }
