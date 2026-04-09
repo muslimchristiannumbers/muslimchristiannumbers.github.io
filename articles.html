@@ -1,1337 +1,262 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#08101d">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>المقالات والتحليلات | Muslim &amp; Christian Numbers</title>
-  <meta name="description" content="مقالات وتحليلات عالمية عن عدد المسيحيين والمسلمين في العالم، مع خرائط توزيع قاري، أرقام رئيسية، قراءة جغرافية، ومنهجية عرض منظمة.">
-  <meta name="keywords" content="عدد المسيحيين, عدد المسلمين, مقالات تحليلية, توزيع قاري, خرائط ديموغرافية, إحصائيات دينية, تحليل عالمي, المسيحية في الصين, المسيحيون في الصين">
-  <meta name="author" content="Muslim & Christian Numbers">
-  <link rel="canonical" href="https://muslimchristiannumbers.github.io/articles.html">
+<title>Global Religious Analysis 2026</title>
 
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="المقالات والتحليلات | Muslim &amp; Christian Numbers">
-  <meta property="og:description" content="تحليل عالمي احترافي لعدد المسيحيين والمسلمين مع خرائط توزيع قاري وأرقام واضحة.">
-  <meta property="og:url" content="https://muslimchristiannumbers.github.io/articles.html">
-  <meta property="og:site_name" content="Muslim &amp; Christian Numbers">
-  <meta property="og:locale" content="ar_AR">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="المقالات والتحليلات | Muslim &amp; Christian Numbers">
-  <meta name="twitter:description" content="تحليل عالمي احترافي لعدد المسيحيين والمسلمين مع خرائط توزيع قاري وأرقام واضحة.">
+<style>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+body{
+  margin:0;
+  font-family:"Tajawal",sans-serif;
+  background:#050b18;
+  color:#eaf2ff;
+}
 
-  <style>
-    :root{
-      --bg:#06101c;
-      --bg2:#0b1220;
-      --panel:#111c31;
-      --panel2:#16233a;
-      --panel3:#1b2a44;
-      --line:#24324d;
-      --text:#e8edf5;
-      --muted:#98a6bd;
-      --blue:#38bdf8;
-      --blue2:#60a5fa;
-      --green:#4ade80;
-      --gold:#fbbf24;
-      --red:#f87171;
-      --shadow:0 18px 44px rgba(0,0,0,.28);
-      --radius:24px;
-      --focus:0 0 0 3px rgba(56,189,248,.34);
-    }
+/* HEADER */
+header{
+  background:linear-gradient(90deg,#0b1220,#08101d);
+  padding:25px;
+  text-align:center;
+  font-weight:900;
+  font-size:22px;
+  letter-spacing:1px;
+}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth; scroll-padding-top:92px}
-    body{
-      margin:0;
-      font-family:"Tajawal",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1000px 540px at 80% 0%, rgba(56,189,248,.10), transparent 60%),
-        radial-gradient(700px 420px at 0% 12%, rgba(74,222,128,.08), transparent 45%),
-        linear-gradient(180deg, #05101c 0%, #0b1220 100%);
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
+/* CONTAINER */
+.container{
+  width:92%;
+  max-width:1300px;
+  margin:auto;
+}
 
-    a{color:inherit}
-    a:hover{text-decoration:none}
-    img{max-width:100%; display:block}
-    button,input,select{font:inherit}
-    ::selection{background:rgba(56,189,248,.30)}
-    :focus-visible{outline:none; box-shadow:var(--focus)}
+/* SECTION */
+.section{
+  margin:60px 0;
+}
 
-    .skip-link{
-      position:absolute;
-      top:-60px;
-      right:16px;
-      z-index:5000;
-      background:#fff;
-      color:#000;
-      padding:10px 14px;
-      border-radius:10px;
-      font-weight:800;
-      text-decoration:none;
-    }
-    .skip-link:focus{top:14px}
+/* TITLE */
+h1{
+  font-size:40px;
+  margin-bottom:20px;
+}
+h2{
+  font-size:26px;
+  margin-bottom:15px;
+}
 
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:1200;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:14px 18px;
-      padding-top:calc(14px + env(safe-area-inset-top));
-      background:rgba(15,23,42,.90);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
+/* TEXT */
+p{
+  line-height:2;
+  color:#9fb4d1;
+  font-size:16px;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-      font-weight:900;
-    }
-    .brand .logo{
-      width:42px;
-      height:42px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(74,222,128,.16));
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:var(--shadow);
-      color:var(--blue);
-      flex:0 0 auto;
-    }
-    .brand .title{
-      display:flex;
-      flex-direction:column;
-      min-width:0;
-    }
-    .brand .title b{
-      font-size:18px;
-      line-height:1.15;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .brand .title span{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.2;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
 
-    .top-actions{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      color:#d9e5f4;
-      font-size:13px;
-      font-weight:700;
-      white-space:nowrap;
-    }
-    .lang-btn{
-      border:0;
-      cursor:pointer;
-      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(74,222,128,.18));
-      color:#fff;
-      font-weight:800;
-      padding:10px 14px;
-      border-radius:14px;
-      box-shadow:var(--shadow);
-    }
+/* CARD */
+.card{
+  background:#0f172a;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 0 40px rgba(0,0,0,.4);
+}
 
-    .layout{
-      display:grid;
-      grid-template-columns:300px 1fr;
-      min-height:calc(100vh - 78px);
-    }
+/* STATS */
+.stat{
+  font-size:40px;
+  font-weight:900;
+}
 
-    .sidebar{
-      position:sticky;
-      top:78px;
-      height:calc(100vh - 78px);
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
-      padding:18px;
-      background:linear-gradient(180deg, rgba(17,28,49,.98), rgba(10,16,28,.98));
-      border-left:1px solid rgba(255,255,255,.06);
-      box-shadow:var(--shadow);
-    }
-    .box{
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-      margin-bottom:16px;
-    }
-    .box h3{
-      margin:0 0 12px 0;
-      font-size:18px;
-    }
-    .nav-link{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-decoration:none;
-      color:var(--text);
-      padding:12px 14px;
-      margin-bottom:8px;
-      border-radius:14px;
-      border:1px solid transparent;
-      transition:.22s ease;
-    }
-    .nav-link i{
-      color:var(--blue);
-      width:18px;
-      text-align:center;
-      flex:0 0 auto;
-    }
-    .nav-link:hover{
-      background:rgba(56,189,248,.10);
-      border-color:rgba(56,189,248,.18);
-      transform:translateX(-3px);
-    }
+.green{color:#4ade80;}
+.blue{color:#38bdf8;}
 
-    .side-stats{
-      display:grid;
-      gap:10px;
-    }
-    .side-stat{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:12px;
-      border-radius:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-    }
-    .side-stat .icon{
-      width:36px;
-      height:36px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,.05);
-      flex:0 0 auto;
-    }
-    .side-stat .label{
-      display:block;
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:2px;
-    }
-    .side-stat .value{
-      font-size:17px;
-      font-weight:900;
-      direction:ltr;
-      unicode-bidi:plaintext;
-    }
+/* CHART */
+canvas{
+  margin-top:20px;
+}
 
-    .content{
-      padding:24px;
-    }
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:.6s;
+}
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
 
-    .hero{
-      background:
-        linear-gradient(135deg, rgba(22,35,58,.98), rgba(17,28,49,.97)),
-        radial-gradient(800px 220px at 50% 0%, rgba(56,189,248,.10), transparent 72%);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:26px;
-      padding:28px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      position:relative;
-      margin-bottom:20px;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:auto -80px -80px auto;
-      width:240px;
-      height:240px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(74,222,128,.12) 0%, rgba(74,222,128,0) 70%);
-      pointer-events:none;
-    }
-    .crumb{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:10px;
-      font-weight:700;
-    }
-    .hero h1{
-      margin:0 0 12px 0;
-      font-size:clamp(30px, 4.8vw, 58px);
-      line-height:1.08;
-      letter-spacing:.2px;
-    }
-    .hero p{
-      margin:0;
-      color:#dbe7f8;
-      font-size:17px;
-      line-height:2;
-      max-width:980px;
-      font-weight:500;
-    }
-    .hero .mini{
-      margin-top:14px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.9;
-      max-width:980px;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 18px;
-      border-radius:14px;
-      text-decoration:none;
-      border:1px solid rgba(255,255,255,.08);
-      font-weight:900;
-      transition:.22s ease;
-      cursor:pointer;
-    }
-    .btn-primary{
-      background:linear-gradient(135deg, #38bdf8, #22c55e);
-      color:#fff;
-      box-shadow:0 14px 26px rgba(56,189,248,.14);
-    }
-    .btn-secondary{
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-    }
-    .btn:hover{transform:translateY(-2px)}
-
-    .toc{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:12px;
-      margin:18px 0 8px;
-    }
-    .toc a{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      padding:12px 14px;
-      border-radius:14px;
-      text-decoration:none;
-      color:#eaf2fb;
-      font-weight:700;
-      line-height:1.6;
-    }
-
-    .section{
-      background:linear-gradient(180deg, rgba(22,35,58,.96), rgba(17,28,49,.96));
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:var(--shadow);
-      margin-bottom:18px;
-    }
-    .section h2{
-      margin:0 0 12px 0;
-      font-size:26px;
-      line-height:1.2;
-    }
-    .section p{
-      margin:0 0 14px 0;
-      color:var(--muted);
-      line-height:2;
-      font-size:15px;
-    }
-
-    .stats-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:14px;
-      margin-top:16px;
-    }
-    .stat-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-      min-height:120px;
-    }
-    .stat-card .k{
-      color:var(--muted);
-      font-size:14px;
-      font-weight:700;
-    }
-    .stat-card .v{
-      margin-top:8px;
-      font-size:30px;
-      font-weight:900;
-      line-height:1.1;
-      direction:ltr;
-      unicode-bidi:plaintext;
-    }
-    .blue{color:var(--blue)}
-    .blue2{color:var(--blue2)}
-    .green{color:var(--green)}
-    .gold{color:var(--gold)}
-    .red{color:var(--red)}
-
-    .article-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-    .article-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-    }
-    .article-card h3{
-      margin:0 0 10px 0;
-      font-size:20px;
-      line-height:1.3;
-    }
-    .article-card .meta{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-bottom:10px;
-    }
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:12px;
-      background:rgba(255,255,255,.05);
-      color:#dce6f2;
-      border:1px solid rgba(255,255,255,.07);
-    }
-    .article-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.95;
-      font-size:14px;
-    }
-
-    .callout{
-      margin-top:14px;
-      padding:16px;
-      border-radius:18px;
-      background:linear-gradient(135deg, rgba(56,189,248,.10), rgba(74,222,128,.08));
-      border:1px solid rgba(255,255,255,.08);
-      color:#e8f1fb;
-      line-height:1.95;
-    }
-
-    .timeline{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-    .timeline .item{
-      border-radius:18px;
-      padding:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-    }
-    .timeline .year{
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:8px;
-      font-weight:700;
-    }
-    .timeline .value{
-      font-size:24px;
-      font-weight:900;
-      margin-bottom:8px;
-    }
-
-    .quote{
-      border-right:4px solid var(--blue);
-      background:rgba(255,255,255,.03);
-      border-radius:18px;
-      padding:16px 16px 16px 18px;
-      color:#dbe7f8;
-      line-height:2;
-      margin-top:14px;
-    }
-
-    .faq{
-      display:grid;
-      gap:12px;
-      margin-top:14px;
-    }
-    details{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:16px;
-      padding:14px 16px;
-    }
-    summary{
-      cursor:pointer;
-      font-weight:900;
-      color:#f8fafc;
-      list-style:none;
-    }
-    summary::-webkit-details-marker{display:none}
-    details p{
-      margin-top:12px;
-      color:var(--muted);
-      line-height:1.95;
-      font-size:14px;
-    }
-
-    .sources{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-    .source-card{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      text-decoration:none;
-      padding:14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      transition:.22s ease;
-    }
-    .source-card:hover{
-      transform:translateY(-2px);
-      border-color:rgba(56,189,248,.20);
-      background:rgba(56,189,248,.08);
-    }
-    .source-card i{
-      color:var(--blue);
-      margin-top:2px;
-      flex:0 0 auto;
-    }
-    .source-card b{
-      display:block;
-      margin-bottom:4px;
-    }
-    .source-card small{
-      display:block;
-      color:var(--muted);
-      line-height:1.75;
-    }
-
-    .footer{
-      text-align:center;
-      color:var(--muted);
-      padding:24px 0 8px;
-      font-size:14px;
-      line-height:1.8;
-    }
-
-    .toc-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:14px;
-    }
-    .toc-links a{
-      text-decoration:none;
-      color:#e8eef8;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      padding:10px 12px;
-      border-radius:14px;
-      font-weight:700;
-    }
-
-    .back{
-      position:fixed;
-      left:18px;
-      bottom:18px;
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      border:0;
-      cursor:pointer;
-      color:#fff;
-      background:linear-gradient(135deg,#38bdf8,#22c55e);
-      box-shadow:0 12px 28px rgba(0,0,0,.35);
-      opacity:0;
-      transition:.25s ease;
-      z-index:999;
-    }
-    .back.show{opacity:1}
-
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.5);
-      backdrop-filter:blur(2px);
-      opacity:0;
-      pointer-events:none;
-      transition:.22s ease;
-      z-index:900;
-    }
-    .overlay.active{
-      opacity:1;
-      pointer-events:auto;
-    }
-
-    .maps-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-    .map-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-    }
-    .map-card .head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom:10px;
-    }
-    .map-card .head b{
-      font-size:16px;
-      color:#f8fafc;
-    }
-    .map-card .percent{
-      font-size:20px;
-      font-weight:900;
-      color:var(--blue);
-      direction:ltr;
-      unicode-bidi:plaintext;
-      white-space:nowrap;
-    }
-    .bar{
-      width:100%;
-      height:12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      overflow:hidden;
-      margin:8px 0 12px;
-    }
-    .bar > span{
-      display:block;
-      height:100%;
-      border-radius:999px;
-      background:linear-gradient(135deg, #38bdf8, #22c55e);
-    }
-    .map-card small{
-      display:block;
-      color:var(--muted);
-      line-height:1.8;
-    }
-
-    .continent-tiles{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-    .tile{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-    }
-    .tile h3{
-      margin:0 0 8px 0;
-      font-size:18px;
-    }
-    .tile p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.95;
-      font-size:14px;
-    }
-
-    .china-box{
-      margin-top:14px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:20px;
-      padding:18px;
-    }
-    .china-box h3{
-      margin:0 0 10px 0;
-      font-size:22px;
-      line-height:1.3;
-    }
-    .china-box p{
-      margin:0 0 14px 0;
-      color:var(--muted);
-      line-height:2;
-      font-size:15px;
-    }
-    .china-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-    }
-    .china-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-    }
-    .china-card .k{
-      color:var(--muted);
-      font-size:14px;
-      font-weight:700;
-    }
-    .china-card .v{
-      margin-top:8px;
-      font-size:28px;
-      font-weight:900;
-      line-height:1.1;
-      direction:ltr;
-      unicode-bidi:plaintext;
-    }
-
-    @media (max-width:1080px){
-      .layout{grid-template-columns:1fr}
-      .sidebar{
-        position:fixed;
-        top:78px;
-        right:-330px;
-        width:min(320px, 88vw);
-        z-index:1001;
-        transition:.22s ease;
-      }
-      .sidebar.active{right:0}
-      .content{padding:18px}
-    }
-
-    @media (max-width:920px){
-      .toc,
-      .stats-grid,
-      .article-grid,
-      .timeline,
-      .sources,
-      .maps-grid,
-      .continent-tiles,
-      .china-grid{
-        grid-template-columns:1fr;
-      }
-      .hero{padding:24px}
-      .hero h1{font-size:clamp(28px, 8vw, 44px)}
-      .hero p{font-size:16px}
-      .top-actions .pill{display:none}
-      .brand .title b{font-size:16px}
-      .brand .title span{display:none}
-    }
-
-    @media (max-width:640px){
-      .content{padding:14px}
-      .section{padding:18px}
-      .hero{padding:20px}
-      .lang-btn{padding:9px 12px}
-      .brand .logo{width:38px;height:38px}
-      .toc a{padding:11px 12px}
-      .btn{width:100%; justify-content:center}
-      .back{left:14px; bottom:14px}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      *,*::before,*::after{
-        animation-duration:0.01ms !important;
-        animation-iteration-count:1 !important;
-        transition-duration:0.01ms !important;
-        scroll-behavior:auto !important;
-      }
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"المقالات والتحليلات",
-    "description":"مقالات تحليلية وإحصائية عن عدد المسيحيين والمسلمين في العالم",
-    "url":"https://muslimchristiannumbers.github.io/articles.html",
-    "isPartOf":{
-      "@type":"WebSite",
-      "name":"Muslim & Christian Numbers",
-      "url":"https://muslimchristiannumbers.github.io/"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://muslimchristiannumbers.github.io/"},
-      {"@type":"ListItem","position":2,"name":"المقالات","item":"https://muslimchristiannumbers.github.io/articles.html"}
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"هل هذه الصفحة مناسبة لمحركات البحث؟",
-        "acceptedAnswer":{"@type":"Answer","text":"نعم، لأنها تعتمد على نص أصلي، عناوين واضحة، بنية دلالية، وروابط داخلية وخارجية منظمة."}
-      },
-      {
-        "@type":"Question",
-        "name":"هل الأرقام هنا نهائية؟",
-        "acceptedAnswer":{"@type":"Answer","text":"الأرقام المعروضة تقريبية وتُستخدم للعرض التحليلي، ويمكن تحديثها بحسب المصدر الذي تعتمد عليه."}
-      },
-      {
-        "@type":"Question",
-        "name":"هل يمكن ربط هذه الصفحة بصفحات مقالات فرعية؟",
-        "acceptedAnswer":{"@type":"Answer","text":"نعم، ويمكن تحويل كل بطاقة إلى صفحة مستقلة مع نفس التصميم العام."}
-      }
-    ]
-  }
-  </script>
+</style>
 </head>
 
 <body>
-  <a class="skip-link" href="#mainContent">تجاوز إلى المحتوى الرئيسي</a>
 
-  <div class="overlay" id="overlay"></div>
-  <button class="back" id="backBtn" aria-label="العودة إلى الأعلى">↑</button>
+<header>
+GLOBAL RELIGIOUS DISTRIBUTION 2026
+</header>
 
-  <header class="topbar">
-    <button class="lang-btn" id="menuBtn" type="button" aria-label="فتح القائمة">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+<div class="container">
 
-    <div class="brand">
-      <div class="logo"><i class="fa-solid fa-chart-column"></i></div>
-      <div class="title">
-        <b>Muslim &amp; Christian Numbers</b>
-        <span>مقالات وتحليلات وإحصائيات</span>
-      </div>
-    </div>
+<section class="section fade">
+<h1>التحليل العالمي للمسيحية والإسلام</h1>
 
-    <div class="top-actions">
-      <span class="pill"><i class="fa-regular fa-clock"></i> تحديث 2026</span>
-      <span class="pill"><i class="fa-solid fa-shield-halved"></i> محتوى منظم</span>
-      <button class="lang-btn" type="button" onclick="window.location.href='index.html'">العودة للرئيسية</button>
-    </div>
-  </header>
+<p>
+تُظهر البيانات العالمية أن المسيحية تمثل أكبر ديانة من حيث عدد الأتباع،
+بإجمالي يقدّر بنحو 2.7 مليار شخص موزعين على مختلف القارات.
+</p>
 
-  <div class="layout">
-    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية">
-      <div class="box">
-        <h3>الأقسام</h3>
-        <a class="nav-link" href="#mainArticle"><i class="fa-solid fa-newspaper"></i> المقال الرئيسي</a>
-        <a class="nav-link" href="#quickStats"><i class="fa-solid fa-chart-simple"></i> الأرقام السريعة</a>
-        <a class="nav-link" href="#analysis"><i class="fa-solid fa-magnifying-glass-chart"></i> التحليل</a>
-        <a class="nav-link" href="#mapAnalysis"><i class="fa-solid fa-map-location-dot"></i> الخريطة والتوزيع</a>
-        <a class="nav-link" href="#chinaFocus"><i class="fa-solid fa-earth-asia"></i> الصين</a>
-        <a class="nav-link" href="#method"><i class="fa-solid fa-clipboard-check"></i> المنهجية</a>
-        <a class="nav-link" href="#faq"><i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة</a>
-        <a class="nav-link" href="#sources"><i class="fa-solid fa-book"></i> المصادر</a>
-      </div>
+<p>
+في المقابل، يأتي الإسلام في المرتبة الثانية عالميًا،
+ضمن نطاق يتراوح بين 2 و2.1 مليار، مع تمركز رئيسي في آسيا وأفريقيا.
+</p>
 
-      <div class="box">
-        <h3>روابط مهمة</h3>
-        <div class="side-stats">
-          <div class="side-stat">
-            <div class="icon"><i class="fa-solid fa-cross green"></i></div>
-            <div>
-              <span class="label">المسيحيون</span>
-              <div class="value green">2.7B</div>
-            </div>
-          </div>
-          <div class="side-stat">
-            <div class="icon"><i class="fa-solid fa-mosque blue"></i></div>
-            <div>
-              <span class="label">المسلمون</span>
-              <div class="value blue">2 - 2.1B</div>
-            </div>
-          </div>
-        </div>
-      </div>
+</section>
 
-      <div class="box">
-        <h3>صفحات إضافية</h3>
-        <a class="nav-link" href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
-        <a class="nav-link" href="privacy.html"><i class="fa-solid fa-shield-halved"></i> Privacy</a>
-        <a class="nav-link" href="terms.html"><i class="fa-solid fa-file-lines"></i> Terms</a>
-        <a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
-      </div>
-    </aside>
+<section class="section grid fade">
 
-    <main class="content" id="mainContent">
-      <section class="hero" id="mainArticle">
-        <div class="crumb">
-          <i class="fa-solid fa-house"></i>
-          <span>الرئيسية / المقالات</span>
-        </div>
+<div class="card">
+<div>المسيحيون عالميًا</div>
+<div class="stat green" id="christians">0</div>
+</div>
 
-        <h1>المقالات والتحليلات حول عدد المسيحيين والمسلمين في العالم</h1>
-        <p>
-          هذه الصفحة مخصصة لمحتوى تحليلي طويل ومنظم، يشرح الأرقام الأساسية، ويعرض صورة قارية واضحة،
-          ويجمع بين الأرقام والقراءة والمصادر والمنهجية في تصميم واحد يبدو عالميًا واحترافيًا.
-        </p>
-        <div class="mini">
-          يركّز هذا النموذج على المحتوى الأصلي غير المتكرر، مع إبراز المسيحية كأكبر ديانة عالميًا
-          ضمن العرض التحريري، وتقديم الإسلام بوصفه الديانة الثانية عالميًا في إطار وصفي محايد.
-        </div>
+<div class="card">
+<div>المسلمون عالميًا</div>
+<div class="stat blue" id="muslims">0</div>
+</div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#quickStats"><i class="fa-solid fa-arrow-down"></i> استعرض الأرقام</a>
-          <a class="btn btn-secondary" href="#sources"><i class="fa-solid fa-book-open"></i> انتقل إلى المصادر</a>
-        </div>
+</section>
 
-        <div class="toc" aria-label="فهرس المحتوى">
-          <a href="#mainArticle">المقال الرئيسي</a>
-          <a href="#analysis">التحليل</a>
-          <a href="#mapAnalysis">الخرائط</a>
-        </div>
-      </section>
+<section class="section fade">
+<h2>التوزيع العالمي</h2>
 
-      <section class="section" id="quickStats">
-        <h2>الأرقام السريعة</h2>
-        <p>
-          في العرض المعتمد هنا، المسيحيون يقاربون 2.7 مليار شخص، بينما يقع المسلمون ضمن نطاق تقريبي
-          بين 2 و 2.1 مليار. هذا القسم يعطي الزائر الإجابة السريعة أولًا، ثم ينتقل إلى التحليل القاري
-          والتفصيل الجغرافي.
-        </p>
+<canvas id="globalChart"></canvas>
 
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="k">المسيحيون عالميًا</div>
-            <div class="v green">2.7B</div>
-          </div>
-          <div class="stat-card">
-            <div class="k">المسلمون عالميًا</div>
-            <div class="v blue">2 - 2.1B</div>
-          </div>
-          <div class="stat-card">
-            <div class="k">نوع القراءة</div>
-            <div class="v gold">تحليلي</div>
-          </div>
-          <div class="stat-card">
-            <div class="k">تحديث المحتوى</div>
-            <div class="v gold">2026</div>
-          </div>
-        </div>
-      </section>
+</section>
 
-      <section class="section" id="analysis">
-        <h2>قراءة تحليلية عالمية</h2>
-        <p>
-          المسيحية هي أكبر ديانة في العالم من حيث العدد، لكن الأهم من الرقم وحده هو شكل الانتشار.
-          فهذه الديانة لا تتركز في منطقة واحدة، بل تمتد عبر أوروبا والأمريكيتين وأفريقيا وآسيا
-          وأوقيانوسيا، وهذا يجعلها أكثر حضورًا جغرافيًا من كثير من الديانات الأخرى.
-        </p>
-        <p>
-          في المقابل، يظهر الإسلام بوصفه الديانة الثانية عالميًا من حيث العدد، مع تركّز واضح
-          في آسيا وأفريقيا، إضافة إلى وجود مهم في أوروبا والأمريكيتين. لذلك فإن قراءة الأرقام
-          لا تتوقف عند مقارنة رقم مع رقم، بل تشمل فهم الخريطة كاملة: أين يتجمع الأتباع،
-          وأين ينمو العدد، وأين تبقى الكثافة مرتفعة.
-        </p>
+<section class="section fade">
+<h2>التوزيع القاري</h2>
 
-        <div class="article-grid">
-          <article class="article-card">
-            <h3>لماذا يبدو المشهد المسيحي عالميًا بهذا الاتساع؟</h3>
-            <div class="meta">
-              <span class="tag"><i class="fa-solid fa-globe"></i> انتشار</span>
-              <span class="tag"><i class="fa-solid fa-chart-line"></i> نمو</span>
-              <span class="tag"><i class="fa-solid fa-sitemap"></i> توزيع</span>
-            </div>
-            <p>
-              لأن المسيحية موجودة في أغلب القارات، مع ثقل تاريخي كبير في أوروبا والأمريكيتين،
-              وحضور متزايد في أفريقيا. وقد أصبح ثقل المسيحية في أفريقيا جنوب الصحراء واضحًا جدًا،
-              ما يجعل مركزها الديموغرافي أكثر تنوعًا واتساعًا من أي وقت مضى.
-            </p>
-          </article>
+<canvas id="continentChart"></canvas>
 
-          <article class="article-card">
-            <h3>الإسلام في الخريطة العالمية</h3>
-            <div class="meta">
-              <span class="tag"><i class="fa-solid fa-layer-group"></i> تركز</span>
-              <span class="tag"><i class="fa-solid fa-compass"></i> جغرافي</span>
-            </div>
-            <p>
-              الإسلام يأتي ثانيًا عالميًا، لكن توزيعه الجغرافي يظل قويًا وواضحًا في آسيا وأفريقيا،
-              مع وجود أقل في أوروبا والأمريكيتين. وهذا النمط يمنح الصفحة فرصة لعرض الفرق بين الحجم
-              الكلي وبين الانتشار الجغرافي بطريقة سهلة الفهم.
-            </p>
-          </article>
+</section>
 
-          <article class="article-card">
-            <h3>لماذا يفوز المحتوى التحليلي على المحتوى القصير؟</h3>
-            <div class="meta">
-              <span class="tag"><i class="fa-solid fa-book-open"></i> قراءة</span>
-              <span class="tag"><i class="fa-solid fa-magnifying-glass"></i> فهم</span>
-            </div>
-            <p>
-              لأن الزائر لا يريد فقط رقمًا، بل يريد رقمًا ومعنى. المقال التحليلي يشرح الرقم،
-              ويضعه في سياقه، ويجعله أقرب للفهم والمقارنة. لهذا السبب يظهر هذا النوع من الصفحات
-              أقوى عند ربطه بالمصادر، وبالخرائط، وبالأسئلة الشائعة، وبالعناوين المنظمة.
-            </p>
-          </article>
+<section class="section fade">
+<h2>المسيحية في الصين</h2>
 
-          <article class="article-card">
-            <h3>الصين ضمن المشهد المسيحي</h3>
-            <div class="meta">
-              <span class="tag"><i class="fa-solid fa-earth-asia"></i> دولة</span>
-              <span class="tag"><i class="fa-solid fa-circle-info"></i> تقديرات</span>
-            </div>
-            <p>
-              داخل هذا الموقع، تُعرض الصين كحالة نمو بارزة في المشهد المسيحي. التقدير المعتمد هنا
-              يضع العدد الحالي عند 130 مليون تقريبًا، مع توقع داخلي يصل إلى 230 مليون بحلول 2030.
-              كما يمكن الإشارة إلى أن المجتمع المسيحي الصيني واسع ومنتشر ومتعدد الأشكال، ويشمل
-              حضورًا حضريًا وكنسيًا وخدمات مجتمعية وتنوعًا في أنماط الممارسة الدينية.
-            </p>
-          </article>
-        </div>
+<p>
+يبلغ عدد المسيحيين في الصين نحو 130 مليون نسمة،
+مع توقعات تشير إلى وصول العدد إلى 230 مليون بحلول عام 2030،
+مما يجعلها من أهم مناطق النمو المسيحي عالميًا.
+</p>
 
-        <div class="quote">
-          المسيحية تبقى الديانة الأكبر عالميًا في هذا العرض، مع انتشار واسع جدًا عبر القارات،
-          بينما يأتي الإسلام ثانيًا ضمن نطاق 2 إلى 2.1 مليار. هذه القراءة تمنح الصفحة طابعًا
-          إحصائيًا واضحًا واحترافيًا، بدل الأسلوب القصير أو المتكرر.
-        </div>
-      </section>
+</section>
 
-      <section class="section" id="mapAnalysis">
-        <h2>الخريطة القارية والتوزيع بالأرقام</h2>
-        <p>
-          هذا القسم يقدّم صورة مباشرة وسريعة عن التوزيع القاري، من خلال أرقام واضحة وشكل بصري
-          يناسب المستخدم على الهاتف والكمبيوتر. الأرقام أدناه مبنية لتبدو مثل لوحات توزيع عالمية
-          حديثة، بحيث يفهم الزائر مناطق الثقل في كل ديانة بسرعة.
-        </p>
+<section class="section fade">
+<h2>الانتشار الجغرافي</h2>
 
-        <div class="maps-grid">
-          <div class="map-card">
-            <div class="head"><b>آسيا</b><span class="percent">1.25B / 416.786M</span></div>
-            <div class="bar"><span style="width:72%"></span></div>
-            <small>آسيا هي أكبر مركز للمسلمين، وفي الوقت نفسه تضم كتلة مسيحية كبيرة جدًا، ما يجعلها قارة محورية في التحليل العالمي.</small>
-          </div>
+<p>
+المسيحية تمتد عبر أوروبا والأمريكيتين وأفريقيا وآسيا،
+مما يمنحها حضورًا عالميًا متكاملًا.
+</p>
 
-          <div class="map-card">
-            <div class="head"><b>أفريقيا</b><span class="percent">450M / 754.229M</span></div>
-            <div class="bar"><span style="width:64%"></span></div>
-            <small>أفريقيا تمثل اليوم واحدة من أقوى مناطق النمو للمسيحية، مع حضور مسلم كبير أيضًا، وهذا يجعل القارة ساحة ديموغرافية مهمة.</small>
-          </div>
+<p>
+الإسلام يتركز بشكل رئيسي في آسيا وأفريقيا،
+مع وجود أقل في بقية القارات.
+</p>
 
-          <div class="map-card">
-            <div class="head"><b>أوروبا</b><span class="percent">60M / 551.934M</span></div>
-            <div class="bar"><span style="width:48%"></span></div>
-            <small>أوروبا تحتفظ بثقل مسيحي تاريخي كبير، بينما يبقى الوجود الإسلامي فيها حاضرًا لكنه أقل من مناطق الثقل الكبرى.</small>
-          </div>
+</section>
 
-          <div class="map-card">
-            <div class="head"><b>أمريكا الشمالية</b><span class="percent">8M / 271.779M</span></div>
-            <div class="bar"><span style="width:34%"></span></div>
-            <small>أمريكا الشمالية تضم مجتمعًا مسيحيًا واسعًا للغاية، مقابل وجود مسلم أقل لكنه متنامٍ في المدن الكبرى والتجمعات الحضرية.</small>
-          </div>
+</div>
 
-          <div class="map-card">
-            <div class="head"><b>أمريكا اللاتينية</b><span class="percent">2M / 620.116M</span></div>
-            <div class="bar"><span style="width:61%"></span></div>
-            <small>أمريكا اللاتينية تبقى من أكبر الكتل المسيحية في العالم، وهي من أبرز مناطق الثقل المسيحي عالميًا.</small>
-          </div>
+<script>
 
-          <div class="map-card">
-            <div class="head"><b>أوقيانوسيا</b><span class="percent">1M / 30.472M</span></div>
-            <div class="bar"><span style="width:18%"></span></div>
-            <small>أوقيانوسيا أقل عددًا، لكنها تظل جزءًا مهمًا من التوزيع العالمي، خاصة عند النظر إلى الصورة الكاملة للانتشار الديني.</small>
-          </div>
-        </div>
-
-        <div class="continent-tiles">
-          <div class="tile">
-            <h3>المسيحية في القارات</h3>
-            <p>
-              وفق اللوحة القارية التي يبنيها الموقع، تبدو المسيحية أكثر امتدادًا عالميًا، مع تركز
-              شديد في أفريقيا وأمريكا اللاتينية وأوروبا، وحضور كبير في أمريكا الشمالية وآسيا.
-              هذا الانتشار الواسع هو أحد أسباب بقائها في الصدارة العالمية.
-            </p>
-          </div>
-          <div class="tile">
-            <h3>الإسلام في القارات</h3>
-            <p>
-              الإسلام يحتفظ بكتلة ضخمة جدًا في آسيا، وحضور قوي في أفريقيا، مع وجود أقل في أوروبا
-              والأمريكيتين وأوقيانوسيا. هذا النمط يمنح الصفحة فرصة لعرض الفرق بين الكتلة العددية
-              والانتشار الجغرافي بطريقة سهلة الفهم.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="chinaFocus">
-        <h2>المسيحية في الصين</h2>
-        <p>
-          في هذا الموقع، تُعرض الصين بوصفها واحدة من أكثر الحالات أهمية في النقاش العالمي
-          حول نمو المسيحية. التقدير المعتمد هنا هو 130 مليون مسيحي حاليًا، مع إشارة داخلية
-          إلى احتمال وصول العدد إلى 230 مليونًا بحلول عام 2030. هذه الصياغة تجعل الصفحة
-          عملية ومباشرة، وتسمح بعرض الرقم في إطار تحليلي واضح بدل التشتت في تفاصيل جانبية.
-        </p>
-        <p>
-          أهمية الصين لا تأتي من الرقم وحده، بل من كونها سوقًا سكانية ضخمة، ما يجعل أي تغير
-          في النسبة الدينية هناك مؤثرًا على الصورة العالمية كلها. وعندما ترتفع أرقام المسيحية
-          في الصين، فإن الحديث لا يكون عن دولة واحدة فحسب، بل عن جزء كبير من التحول الديموغرافي
-          العالمي. لهذا السبب يفيد إدراج الصين في المقال بشكل مستقل، مع عرض الرقم الحالي
-          والتقدير المستقبلي جنبًا إلى جنب.
-        </p>
-
-        <div class="china-box">
-          <h3>ملخص الصين داخل المقال</h3>
-          <p>
-            يعرض هذا القسم الصين على أنها محور نمو مسيحي مهم، مع رقم حالي تقريبي يبلغ 130 مليون
-            وتقدير مستقبلي يصل إلى 230 مليون في 2030 وفق اعتماد الموقع الداخلي. ويمكن إبراز هذا
-            التطور داخل المقالات والخرائط والتقسيمات الخاصة بآسيا، بحيث تصبح الصين جزءًا أساسيًا
-            من التحليل لا مجرد رقم إضافي.
-          </p>
-
-          <div class="china-grid">
-            <div class="china-card">
-              <div class="k">المسيحيون في الصين الآن</div>
-              <div class="v green">130M</div>
-            </div>
-            <div class="china-card">
-              <div class="k">التقدير في 2030</div>
-              <div class="v gold">230M</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>مقال رئيسي: عدد المسيحيين والمسلمين في العالم</h2>
-        <p>
-          حين يفتح الزائر هذه الصفحة، فهو لا يبحث عن درس نظري، بل عن محتوى واضح ومكتوب جيدًا
-          يقدّم له صورة مباشرة عن الواقع الديموغرافي. لذلك يكون الأسلوب الأفضل هو البدء بالرقم،
-          ثم الانتقال إلى التوزيع القاري، ثم إضافة فقرات تشرح لماذا يختلف هذا التوزيع من منطقة
-          إلى أخرى.
-        </p>
-        <p>
-          المسيحية في هذا العرض هي أكبر ديانة عالميًا من حيث العدد، كما أنها أكثر الديانات
-          انتشارًا جغرافيًا. ويظهر ذلك في وجودها القوي داخل أوروبا وأمريكا اللاتينية وأفريقيا،
-          بالإضافة إلى حضورها في أمريكا الشمالية وآسيا وأوقيانوسيا. ويضيف هذا الاتساع قيمة
-          كبيرة للموقع، لأنه يجعل الصفحة تبدو مثل لوحة إحصائية عالمية حقيقية.
-        </p>
-        <p>
-          أما الإسلام، فيأتي في المرتبة الثانية عالميًا ضمن نطاق 2 إلى 2.1 مليار، مع ثقل كبير
-          في آسيا وأفريقيا، ووجود متنامٍ في مناطق أخرى. هذا التوزيع يجعل المقارنة بين الديانتين
-          مفيدة جدًا من ناحية القراءة والتحليل، لأنه يوضح الفرق بين الحجم الكلي وبين الكثافة
-          الجغرافية.
-        </p>
-        <p>
-          ويمكن للمقال أن يستفيد من أسلوب السرد التحليلي الطويل بدل اللغة القصيرة أو التعليمية.
-          فالقارئ يبحث غالبًا عن صورة متكاملة: رقم واضح، تفسير سريع، خرائط توزيع، أمثلة على
-          مناطق النمو، ثم خلاصة هادئة تضع كل ذلك داخل إطار واحد منظم.
-        </p>
-
-        <div class="callout">
-          <b>ملاحظة عملية:</b>
-          إذا أردت أن يبدو الموقع عالميًا فعلًا، اجعل هذا القسم مقسمًا إلى فقرات طويلة،
-          مع عنوان رئيسي واضح، ثم بطاقات أرقام، ثم خرائط توزيع، ثم أسئلة شائعة، ثم مصادر.
-          بهذه البنية يصبح المحتوى أقوى بصريًا وأقوى لمحركات البحث أيضًا.
-        </div>
-      </section>
-
-      <section class="section" id="method">
-        <h2>المنهجية</h2>
-        <p>
-          الأرقام المعروضة في هذا الموقع تهدف إلى تقديم قراءة واضحة وسهلة الفهم، وليس مجرد
-          رقم منفرد. لذلك نستخدم أسلوب العرض التحليلي الذي يجمع بين العنوان والرقم والشرح
-          والتوزيع القاري والمصدر، حتى تكون الصفحة متماسكة من البداية إلى النهاية.
-        </p>
-        <div class="timeline">
-          <div class="item">
-            <div class="year">1</div>
-            <div class="value blue">عرض واضح</div>
-            <p>إبراز الرقم الأساسي أولًا، ثم الشرح التفصيلي بعده.</p>
-          </div>
-          <div class="item">
-            <div class="year">2</div>
-            <div class="value green">مصادر</div>
-            <p>ذكر الصفحات المرجعية التي يعتمد عليها الموقع.</p>
-          </div>
-          <div class="item">
-            <div class="year">3</div>
-            <div class="value gold">تنسيق</div>
-            <p>تنظيم النص والعناوين والفقرات لراحة القارئ والمراجعة.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="faq">
-        <h2>الأسئلة الشائعة</h2>
-        <div class="faq">
-          <details>
-            <summary>هل هذه الصفحة مناسبة لمحركات البحث؟</summary>
-            <p>
-              نعم، لأنها تحتوي على عنوان واضح، وصف ميتا مناسب، بنية دلالية، نص أصلي طويل،
-              وخرائط وأرقام واضحة وروابط داخلية وخارجية منظمة.
-            </p>
-          </details>
-          <details>
-            <summary>هل الأرقام هنا نهائية؟</summary>
-            <p>
-              لا، الأرقام تقريبية وتخدم العرض الإحصائي والتحليلي. الأفضل دائمًا الإشارة إلى
-              أنها قابلة للتحديث بحسب المصدر والتاريخ.
-            </p>
-          </details>
-          <details>
-            <summary>هل يمكن تحويل هذا القالب إلى مقالات متعددة؟</summary>
-            <p>
-              نعم، ويمكنك نسخ هذا التصميم لكل مقال على حدة، مع تغيير العنوان والمحتوى والرابط
-              الكانوني والصورة المميزة إذا رغبت.
-            </p>
-          </details>
-          <details>
-            <summary>هل هذا الأسلوب يشبه المواقع العالمية؟</summary>
-            <p>
-              من حيث التنظيم والبنية والتنسيق، نعم. أما من ناحية الدقة، فالمهم دائمًا هو ربط
-              المحتوى بالمصادر التي تعتمدها في موقعك.
-            </p>
-          </details>
-        </div>
-      </section>
-
-      <section class="section" id="sources">
-        <h2>المصادر والروابط</h2>
-        <p>
-          هذه الروابط تساعد الزائر على الانتقال إلى صفحات الموقع الأساسية، كما تدعم الثقة العامة
-          وتُظهر أن الموقع مشروع منظم بصفحات واضحة وليس مجرد أرقام معزولة.
-        </p>
-
-        <div class="toc-links">
-          <a href="about.html">About</a>
-          <a href="terms.html">Terms</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="contact.html">Contact</a>
-        </div>
-
-        <div class="sources">
-          <a class="source-card" href="https://github.com/" target="_blank" rel="noopener">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <div>
-              <b>GitHub Pages</b>
-              <small>منصة النشر للموقع والملفات الثابتة والصفحات الداخلية.</small>
-            </div>
-          </a>
-
-          <a class="source-card" href="https://developers.google.com/search" target="_blank" rel="noopener">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <div>
-              <b>Google Search Central</b>
-              <small>إرشادات عامة حول بناء المحتوى والفهرسة وتجربة المستخدم.</small>
-            </div>
-          </a>
-
-          <a class="source-card" href="https://www.pewresearch.org/religion/" target="_blank" rel="noopener">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <div>
-              <b>Pew Research Center</b>
-              <small>مرجع ديموغرافي معروف لمتابعة التحولات الدينية والقراءات العامة.</small>
-            </div>
-          </a>
-
-          <a class="source-card" href="https://www.gordonconwell.edu/center-for-global-christianity/" target="_blank" rel="noopener">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <div>
-              <b>Gordon-Conwell</b>
-              <small>مصدر مهم لقراءات الإحصاءات المسيحية العالمية والتقديرات المستقبلية.</small>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <div class="footer">
-        © 2026 | Muslim &amp; Christian Numbers — المقالات والتحليلات
-      </div>
-    </main>
-  </div>
-
-  <script>
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    const menuBtn = document.getElementById('menuBtn');
-    const backBtn = document.getElementById('backBtn');
-
-    function openMenu(){
-      sidebar.classList.add('active');
-      overlay.classList.add('active');
+/* ANIMATION ON SCROLL */
+const fades = document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add('show');
     }
-    function closeMenu(){
-      sidebar.classList.remove('active');
-      overlay.classList.remove('active');
+  });
+});
+
+/* COUNTER */
+function animateValue(id, end) {
+  let start = 0;
+  let duration = 2000;
+  let increment = end / (duration / 16);
+
+  let obj = document.getElementById(id);
+
+  let timer = setInterval(()=>{
+    start += increment;
+    if(start >= end){
+      start = end;
+      clearInterval(timer);
     }
+    obj.innerHTML = Math.floor(start/1000000000) + "B";
+  },16);
+}
 
-    menuBtn.addEventListener('click', ()=>{
-      sidebar.classList.contains('active') ? closeMenu() : openMenu();
-    });
-    overlay.addEventListener('click', closeMenu);
+animateValue("christians",2700000000);
+animateValue("muslims",2100000000);
 
-    document.addEventListener('keydown', e=>{
-      if(e.key === 'Escape') closeMenu();
-    });
+/* GLOBAL PIE */
+new Chart(document.getElementById('globalChart'),{
+  type:'doughnut',
+  data:{
+    labels:['المسيحيون','المسلمون'],
+    datasets:[{
+      data:[2.7,2.1],
+      backgroundColor:['#4ade80','#38bdf8']
+    }]
+  }
+});
 
-    window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 300) backBtn.classList.add('show');
-      else backBtn.classList.remove('show');
-    });
+/* CONTINENT CHART */
+new Chart(document.getElementById('continentChart'),{
+  type:'bar',
+  data:{
+    labels:['آسيا','أفريقيا','أوروبا','أمريكا اللاتينية','أمريكا الشمالية'],
+    datasets:[
+      {
+        label:'المسيحيون',
+        data:[416,754,551,620,271],
+        backgroundColor:'#4ade80'
+      },
+      {
+        label:'المسلمون',
+        data:[1250,450,60,2,8],
+        backgroundColor:'#38bdf8'
+      }
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{
+        labels:{color:'#fff'}
+      }
+    },
+    scales:{
+      x:{ticks:{color:'#fff'}},
+      y:{ticks:{color:'#fff'}}
+    }
+  }
+});
 
-    backBtn.addEventListener('click', ()=>{
-      window.scrollTo({top:0, behavior:'smooth'});
-    });
+</script>
 
-    document.querySelectorAll('.nav-link').forEach(link=>{
-      link.addEventListener('click', ()=>{
-        if(window.innerWidth <= 1080) closeMenu();
-      });
-    });
-  </script>
 </body>
 </html>
