@@ -18,23 +18,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0f1a2e">
-  <meta name="description" content="Muslim & Christian Numbers — منصة إحصائية تفاعلية لعرض عدد المسلمين والمسيحيين حول العالم مع مقارنة، توزيع قاري، رسوم بيانية، ومصادر موثوقة.">
-  <meta name="keywords" content="عدد المسلمين, عدد المسيحيين, عدد مسلمين 2026, عدد مسيحيين 2026, كم عدد المسلمين في العالم, كم عدد المسيحيين في العالم, المسلمين, المسيحيين, إحصائيات المسلمين, إحصائيات المسيحيين, التوزيع القاري, الرسوم البيانية, السكان">
+  <meta name="description" content="Muslim & Christian Numbers — منصة إحصائية احترافية لعرض وتحليل أعداد المسلمين والمسيحيين حول العالم، مع رسوم بيانية، جداول، ومحتوى منظم مناسب للجوال والكمبيوتر.">
+  <meta name="keywords" content="عدد المسلمين, عدد المسيحيين, إحصائيات المسلمين, إحصائيات المسيحيين, تحليلات سكانية, رسوم بيانية, جداول, Muslim & Christian Numbers">
   <meta name="author" content="Muslim & Christian Numbers">
   <link rel="canonical" href="https://muslimchristiannumbers.github.io/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Muslim & Christian Numbers">
-  <meta property="og:description" content="إحصائيات تفاعلية لعدد المسلمين والمسيحيين حول العالم">
+  <meta property="og:description" content="منصة إحصائية احترافية لعرض وتحليل أعداد المسلمين والمسيحيين حول العالم">
   <meta property="og:url" content="https://muslimchristiannumbers.github.io/">
   <meta property="og:site_name" content="Muslim & Christian Numbers">
   <meta property="og:locale" content="ar_AR">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Muslim & Christian Numbers">
-  <meta name="twitter:description" content="إحصائيات تفاعلية لعدد المسلمين والمسيحيين حول العالم">
+  <meta name="twitter:description" content="منصة إحصائية احترافية لعرض وتحليل أعداد المسلمين والمسيحيين حول العالم">
 
-  <title>Muslim & Christian Numbers | إحصائيات المسلمين والمسيحيين 2026</title>
+  <title>Muslim & Christian Numbers | إحصائيات وتحليلات 2026</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,36 +45,29 @@
   <style>
     :root{
       --bg:#0f1a2e;
-      --bg-2:#111827;
       --panel:#111b2e;
       --panel-2:#16233a;
-      --panel-3:#1a2740;
       --line:#24324d;
       --text:#e8eaed;
       --muted:#94a3b8;
-      --blue:#1a73e8;
-      --blue-2:#38bdf8;
+      --blue:#38bdf8;
+      --blue-2:#60a5fa;
       --green:#22c55e;
       --gold:#fbbf24;
       --red:#ef4444;
       --shadow:0 16px 44px rgba(0,0,0,.28);
       --radius:22px;
-      --radius-lg:28px;
       --focus:0 0 0 3px rgba(56,189,248,.35);
     }
 
     *{box-sizing:border-box}
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top:92px;
-    }
+    html{scroll-behavior:smooth; scroll-padding-top:92px}
     body{
       margin:0;
       font-family:"Tajawal",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:
-        radial-gradient(1000px 600px at 80% 0%, rgba(26,115,232,.14), transparent 58%),
+        radial-gradient(1000px 600px at 80% 0%, rgba(56,189,248,.12), transparent 58%),
         radial-gradient(800px 500px at 0% 12%, rgba(34,197,94,.10), transparent 42%),
-        radial-gradient(700px 500px at 50% 100%, rgba(56,189,248,.08), transparent 45%),
         linear-gradient(180deg, #0a1120 0%, #0f1a2e 100%);
       color:var(--text);
       overflow-x:hidden;
@@ -89,55 +82,31 @@
     img,svg,canvas{max-width:100%; display:block}
 
     .skip-link{
-      position:absolute;
-      top:-60px;
-      right:18px;
-      z-index:4000;
-      background:#fff;
-      color:#000;
-      padding:10px 14px;
-      border-radius:10px;
-      font-weight:800;
-      text-decoration:none;
+      position:absolute; top:-60px; right:18px; z-index:4000;
+      background:#fff; color:#000; padding:10px 14px; border-radius:10px;
+      font-weight:800; text-decoration:none;
     }
     .skip-link:focus{top:16px}
 
     .loader{
-      position:fixed;
-      inset:0;
-      z-index:3000;
+      position:fixed; inset:0; z-index:3000;
       background:linear-gradient(180deg, #0a1120 0%, #0f1a2e 100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      gap:16px;
-      transition:.5s ease;
+      display:flex; align-items:center; justify-content:center;
+      flex-direction:column; gap:16px; transition:.5s ease;
     }
     .loader.hidden{opacity:0; pointer-events:none}
     .loader .ring{
-      width:56px;
-      height:56px;
-      border-radius:50%;
+      width:56px; height:56px; border-radius:50%;
       border:5px solid rgba(255,255,255,.12);
-      border-top-color:var(--blue-2);
+      border-top-color:var(--blue);
       animation:spin 1s linear infinite;
     }
-    .loader .txt{
-      color:#dbe7f8;
-      font-weight:800;
-      letter-spacing:.3px;
-    }
+    .loader .txt{color:#dbe7f8; font-weight:800}
     @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:1200;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+      position:sticky; top:0; z-index:1200;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
       padding:16px 18px;
       background:rgba(15,23,42,.84);
       backdrop-filter:blur(16px);
@@ -146,134 +115,65 @@
     }
 
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:.2px;
-      white-space:nowrap;
-      min-width:0;
+      display:flex; align-items:center; gap:12px;
+      font-size:18px; font-weight:900; letter-spacing:.2px;
+      white-space:nowrap; min-width:0;
     }
     .brand .logo{
-      width:42px;
-      height:42px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
+      width:42px; height:42px; border-radius:14px;
+      display:grid; place-items:center;
       background:linear-gradient(135deg, rgba(56,189,248,.16), rgba(34,197,94,.16));
       border:1px solid rgba(255,255,255,.08);
-      box-shadow:var(--shadow);
-      color:var(--blue-2);
-      flex:0 0 auto;
+      box-shadow:var(--shadow); color:var(--blue); flex:0 0 auto;
     }
-    .brand span{
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-    }
+    .brand span{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 
     .topbar-meta{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;
     }
     .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:999px;
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.08);
-      color:#dbe7f8;
-      font-size:13px;
-      font-weight:700;
-      white-space:nowrap;
+      color:#dbe7f8; font-size:13px; font-weight:700; white-space:nowrap;
     }
 
     .menu-btn{
-      border:0;
-      background:linear-gradient(135deg, #17243c, #101a2b);
-      color:var(--text);
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      font-size:18px;
-      cursor:pointer;
-      box-shadow:var(--shadow);
-      transition:.25s ease;
-      flex:0 0 auto;
+      border:0; background:linear-gradient(135deg, #17243c, #101a2b);
+      color:var(--text); width:46px; height:46px; border-radius:14px;
+      font-size:18px; cursor:pointer; box-shadow:var(--shadow); transition:.25s ease; flex:0 0 auto;
     }
     .menu-btn:hover{transform:translateY(-1px)}
 
     .lang-btn{
-      border:0;
-      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(34,197,94,.18));
-      color:#fff;
-      width:auto;
-      min-width:88px;
-      height:46px;
-      padding:0 14px;
-      border-radius:14px;
-      font-size:14px;
-      font-weight:800;
-      cursor:pointer;
-      box-shadow:var(--shadow);
-      transition:.25s ease;
-      flex:0 0 auto;
+      border:0; background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(34,197,94,.18));
+      color:#fff; min-width:88px; height:46px; padding:0 14px; border-radius:14px;
+      font-size:14px; font-weight:800; cursor:pointer; box-shadow:var(--shadow); transition:.25s ease; flex:0 0 auto;
     }
     .lang-btn:hover{transform:translateY(-1px)}
 
-    .page{
-      display:grid;
-      grid-template-columns:300px 1fr;
-      min-height:calc(100vh - 78px);
-    }
+    .page{display:grid; grid-template-columns:300px 1fr; min-height:calc(100vh - 78px)}
 
     .sidebar{
-      position:sticky;
-      top:78px;
-      height:calc(100vh - 78px);
-      padding:18px;
-      background:linear-gradient(180deg, rgba(17,27,46,.98), rgba(10,16,28,.98));
+      position:sticky; top:78px; height:calc(100vh - 78px);
+      padding:18px; background:linear-gradient(180deg, rgba(17,27,46,.98), rgba(10,16,28,.98));
       border-left:1px solid rgba(255,255,255,.06);
-      box-shadow:var(--shadow);
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
+      box-shadow:var(--shadow); overflow:auto; -webkit-overflow-scrolling:touch;
     }
     .sidebar .box{
       background:rgba(255,255,255,.03);
       border:1px solid rgba(255,255,255,.05);
-      border-radius:18px;
-      padding:16px;
-      margin-bottom:16px;
+      border-radius:18px; padding:16px; margin-bottom:16px;
     }
-    .sidebar h3{
-      margin:0 0 12px 0;
-      font-size:18px;
-    }
+    .sidebar h3{margin:0 0 12px 0; font-size:18px}
     .nav-link{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:12px 14px;
-      margin-bottom:8px;
-      border-radius:14px;
-      text-decoration:none;
-      color:var(--text);
-      transition:.25s ease;
-      border:1px solid transparent;
-      background:transparent;
+      display:flex; align-items:center; gap:12px;
+      padding:12px 14px; margin-bottom:8px; border-radius:14px;
+      text-decoration:none; color:var(--text); transition:.25s ease;
+      border:1px solid transparent; background:transparent;
     }
-    .nav-link i{
-      width:18px;
-      text-align:center;
-      color:var(--blue-2);
-      flex:0 0 auto;
-    }
+    .nav-link i{width:18px; text-align:center; color:var(--blue); flex:0 0 auto}
     .nav-link:hover{
       background:rgba(56,189,248,.10);
       border-color:rgba(56,189,248,.18);
@@ -283,36 +183,18 @@
       background:linear-gradient(135deg, rgba(26,115,232,.20), rgba(34,197,94,.10));
       border-color:rgba(255,255,255,.08);
     }
-    .quick-note{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.9;
-    }
+
+    .quick-note{color:var(--muted); font-size:14px; line-height:1.9}
     .stat-chip{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:12px 14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      margin-bottom:10px;
+      display:flex; gap:10px; align-items:center;
+      padding:12px 14px; border-radius:16px;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06); margin-bottom:10px;
     }
     .stat-chip .icon{
-      width:34px;
-      height:34px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,.05);
-      flex:0 0 auto;
+      width:34px; height:34px; border-radius:12px;
+      display:grid; place-items:center; background:rgba(255,255,255,.05); flex:0 0 auto;
     }
-    .stat-chip .label{
-      color:var(--muted);
-      font-size:13px;
-      display:block;
-      margin-bottom:2px;
-    }
+    .stat-chip .label{color:var(--muted); font-size:13px; display:block; margin-bottom:2px}
     .stat-chip .value{font-weight:900; font-size:16px}
 
     .content{padding:24px}
@@ -322,602 +204,266 @@
         linear-gradient(135deg, rgba(22,35,58,.98), rgba(17,27,46,.96)),
         radial-gradient(600px 220px at 50% 0%, rgba(56,189,248,.14), transparent 70%);
       border:1px solid rgba(255,255,255,.06);
-      border-radius:26px;
-      padding:30px;
-      box-shadow:var(--shadow);
-      margin-bottom:22px;
-      position:relative;
-      overflow:hidden;
+      border-radius:26px; padding:30px; box-shadow:var(--shadow); margin-bottom:22px;
+      position:relative; overflow:hidden;
     }
     .hero::before{
       content:"";
-      position:absolute;
-      inset:auto -80px -80px auto;
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(56,189,248,.16) 0%, rgba(56,189,248,.00) 70%);
+      position:absolute; inset:auto -80px -80px auto;
+      width:220px; height:220px; border-radius:50%;
+      background:radial-gradient(circle, rgba(56,189,248,.16) 0%, rgba(56,189,248,0) 70%);
       pointer-events:none;
     }
-    .hero-top{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:18px;
-    }
+    .hero-top{display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; gap:18px}
     .hero h1{
       margin:0 0 12px 0;
       font-size:clamp(30px, 4vw, 56px);
-      line-height:1.1;
-      letter-spacing:.2px;
-      font-weight:900;
+      line-height:1.1; letter-spacing:.2px; font-weight:900;
     }
-    .hero .subtitle{
-      margin:0 0 14px 0;
-      color:#dbe7f8;
-      font-size:18px;
-      line-height:1.9;
-      max-width:980px;
-      font-weight:700;
-    }
-    .hero .desc{
-      margin:0;
-      color:var(--muted);
-      font-size:16px;
-      line-height:2;
-      max-width:980px;
-    }
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
-    }
+    .hero .subtitle{margin:0 0 14px 0; color:#dbe7f8; font-size:18px; line-height:1.9; max-width:980px; font-weight:700}
+    .hero .desc{margin:0; color:var(--muted); font-size:16px; line-height:2; max-width:980px}
+
+    .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
     .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 18px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:900;
-      border:1px solid rgba(255,255,255,.08);
-      transition:.25s ease;
-      cursor:pointer;
-      user-select:none;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 18px; border-radius:14px; text-decoration:none;
+      font-weight:900; border:1px solid rgba(255,255,255,.08);
+      transition:.25s ease; cursor:pointer; user-select:none;
     }
-    .btn-primary{
-      background:linear-gradient(135deg, #38BDF8, #22C55E);
-      color:#fff;
-      box-shadow:0 14px 30px rgba(56,189,248,.14);
-    }
-    .btn-secondary{
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-    }
+    .btn-primary{background:linear-gradient(135deg, #38BDF8, #22C55E); color:#fff; box-shadow:0 14px 30px rgba(56,189,248,.14)}
+    .btn-secondary{background:rgba(255,255,255,.04); color:var(--text)}
     .btn:hover{transform:translateY(-2px)}
 
-    .hero-badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:flex-start;
-      align-content:flex-start;
-    }
+    .hero-badges{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-start; align-content:flex-start}
     .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      color:#dbe7f8;
-      font-size:13px;
-      font-weight:700;
-      white-space:nowrap;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+      color:#dbe7f8; font-size:13px; font-weight:700; white-space:nowrap;
     }
 
     .search-box{
       margin:0 0 18px 0;
       background:linear-gradient(180deg, rgba(22,35,58,.96), rgba(17,27,46,.96));
       border:1px solid rgba(255,255,255,.06);
-      border-radius:20px;
-      padding:16px;
-      box-shadow:var(--shadow);
+      border-radius:20px; padding:16px; box-shadow:var(--shadow);
     }
     .search-box input{
-      width:100%;
-      padding:14px 16px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:#0f1a2e;
-      color:var(--text);
-      outline:none;
-      box-shadow:0 8px 22px rgba(0,0,0,.18);
+      width:100%; padding:14px 16px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.10); background:#0f1a2e; color:var(--text);
+      outline:none; box-shadow:0 8px 22px rgba(0,0,0,.18);
     }
     .search-box input::placeholder{color:#8da0bc}
-    .no-results{
-      display:none;
-      margin-top:12px;
-      color:var(--muted);
-      font-size:14px;
-    }
+    .no-results{display:none; margin-top:12px; color:var(--muted); font-size:14px}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:18px;
-    }
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
     .card{
       grid-column:span 12;
       background:linear-gradient(180deg, rgba(22,35,58,.96), rgba(17,27,46,.96));
       border:1px solid rgba(255,255,255,.06);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:var(--shadow);
-      opacity:0;
-      transform:translateY(18px);
-      transition:.6s ease;
+      border-radius:24px; padding:22px; box-shadow:var(--shadow);
+      opacity:0; transform:translateY(18px); transition:.6s ease;
     }
     .card.show{opacity:1; transform:translateY(0)}
     .card h2{margin:0 0 16px 0; font-size:26px; line-height:1.2}
     .card h3{margin:0 0 14px 0; font-size:20px; line-height:1.2}
-    .sub{
-      color:var(--muted);
-      line-height:1.95;
-      margin:0 0 16px 0;
-      font-size:15px;
-    }
+    .sub{color:var(--muted); line-height:1.95; margin:0 0 16px 0; font-size:15px}
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
+    .stats{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
     .stat{
-      padding:18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      position:relative;
-      overflow:hidden;
+      padding:18px; border-radius:18px; background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06); position:relative; overflow:hidden;
     }
     .stat::after{
-      content:"";
-      position:absolute;
-      inset:auto -40px -40px auto;
-      width:160px;
-      height:160px;
-      border-radius:50%;
+      content:""; position:absolute; inset:auto -40px -40px auto;
+      width:160px; height:160px; border-radius:50%;
       background:radial-gradient(circle, rgba(255,255,255,.08) 0%, rgba(255,255,255,0) 70%);
       pointer-events:none;
     }
-    .stat .label{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      color:var(--muted);
-      margin-bottom:12px;
-      font-weight:700;
-    }
+    .stat .label{display:flex; align-items:center; gap:10px; color:var(--muted); margin-bottom:12px; font-weight:700}
     .stat .value{
-      font-size:42px;
-      font-weight:900;
-      letter-spacing:.3px;
-      direction:ltr;
-      unicode-bidi:plaintext;
-      line-height:1;
+      font-size:42px; font-weight:900; letter-spacing:.3px;
+      direction:ltr; unicode-bidi:plaintext; line-height:1;
     }
     .mini{margin-top:8px; color:var(--muted); font-size:14px; line-height:1.8}
-    .blue{color:var(--blue-2)}
+    .blue{color:var(--blue)}
     .green{color:var(--green)}
     .gold{color:var(--gold)}
     .red{color:var(--red)}
 
-    .kpis{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:14px;
-    }
+    .kpis{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
     .kpi{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-      min-height:128px;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+      border-radius:18px; padding:16px; min-height:128px;
     }
-    .kpi .n{
-      font-size:28px;
-      font-weight:900;
-      margin-top:8px;
-      line-height:1.15;
-    }
-    .kpi .t{
-      color:var(--muted);
-      font-weight:700;
-      line-height:1.7;
-      font-size:14px;
-    }
+    .kpi .n{font-size:28px; font-weight:900; margin-top:8px; line-height:1.15}
+    .kpi .t{color:var(--muted); font-weight:700; line-height:1.7; font-size:14px}
 
     .filter-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:18px;
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:18px;
     }
-    .filter-row label{
-      color:#dbe7f8;
-      font-weight:900;
-    }
+    .filter-row label{color:#dbe7f8; font-weight:900}
     .filter-row select{
-      min-width:240px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:#0f1a2e;
-      color:var(--text);
-      outline:none;
-      box-shadow:0 8px 22px rgba(0,0,0,.18);
+      min-width:240px; padding:12px 14px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.10); background:#0f1a2e; color:var(--text);
+      outline:none; box-shadow:0 8px 22px rgba(0,0,0,.18);
     }
 
     .table-wrap{
-      overflow:auto;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.06);
-      background:rgba(255,255,255,.02);
-      -webkit-overflow-scrolling:touch;
+      overflow:auto; border-radius:18px; border:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.02); -webkit-overflow-scrolling:touch;
     }
     table{
-      width:100%;
-      border-collapse:collapse;
-      min-width:720px;
-      background:rgba(255,255,255,.02);
+      width:100%; border-collapse:collapse; min-width:720px; background:rgba(255,255,255,.02);
     }
     th,td{
-      padding:14px 12px;
-      text-align:center;
-      border-bottom:1px solid rgba(255,255,255,.08);
+      padding:14px 12px; text-align:center; border-bottom:1px solid rgba(255,255,255,.08);
     }
-    th{
-      background:rgba(255,255,255,.045);
-      font-size:15px;
-      color:#F8FAFC;
-    }
+    th{background:rgba(255,255,255,.045); font-size:15px; color:#F8FAFC}
     td{color:#D6E0F0}
 
-    .charts{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:18px;
-    }
+    .charts{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px}
     .chart-box{
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:14px;
-      position:relative;
-      min-height:380px;
-      overflow:hidden;
+      background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06);
+      border-radius:18px; padding:14px; position:relative; min-height:380px; overflow:hidden;
     }
-    .chart-box h3{
-      margin:8px 8px 18px;
-      color:#F8FAFC;
-    }
-    .chart-frame{
-      position:relative;
-      width:100%;
-      height:clamp(260px, 38vh, 420px);
-      max-height:480px;
-    }
-    .chart-frame canvas{
-      position:absolute !important;
-      inset:0;
-      width:100% !important;
-      height:100% !important;
-    }
+    .chart-box h3{margin:8px 8px 18px; color:#F8FAFC}
+    .chart-frame{position:relative; width:100%; height:clamp(260px, 38vh, 420px); max-height:480px}
+    .chart-frame canvas{position:absolute !important; inset:0; width:100% !important; height:100% !important}
 
-    .map-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-    }
+    .map-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
     .continent-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-      overflow:hidden;
-      position:relative;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+      border-radius:18px; padding:16px; overflow:hidden; position:relative;
     }
-    .continent-card .head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom:10px;
-    }
-    .continent-card .head b{
-      font-size:16px;
-      color:#F8FAFC;
-    }
+    .continent-card .head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+    .continent-card .head b{font-size:16px; color:#F8FAFC}
     .continent-card .percent{
-      font-size:20px;
-      font-weight:900;
-      color:var(--blue-2);
-      direction:ltr;
-      unicode-bidi:plaintext;
-      white-space:nowrap;
+      font-size:20px; font-weight:900; color:var(--blue);
+      direction:ltr; unicode-bidi:plaintext; white-space:nowrap;
     }
     .bar{
-      width:100%;
-      height:12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      overflow:hidden;
-      margin:8px 0 12px;
+      width:100%; height:12px; border-radius:999px; background:rgba(255,255,255,.06);
+      overflow:hidden; margin:8px 0 12px;
     }
-    .bar > span{
-      display:block;
-      height:100%;
-      border-radius:999px;
-      background:linear-gradient(135deg, #38BDF8, #22C55E);
-    }
-    .continent-card small{
-      color:var(--muted);
-      line-height:1.8;
-      display:block;
-    }
+    .bar > span{display:block; height:100%; border-radius:999px; background:linear-gradient(135deg, #38BDF8, #22C55E)}
+    .continent-card small{color:var(--muted); line-height:1.8; display:block}
 
-    .timeline{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:14px;
-    }
+    .timeline{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
     .time-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+      border-radius:18px; padding:16px;
     }
-    .time-card .year{
-      font-size:14px;
-      color:var(--muted);
-      margin-bottom:10px;
-      font-weight:700;
+    .time-card .year{font-size:14px; color:var(--muted); margin-bottom:10px; font-weight:700}
+    .time-card .big{font-size:30px; font-weight:900; direction:ltr; unicode-bidi:plaintext; line-height:1.05}
+
+    .article-grid{
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px;
     }
-    .time-card .big{
-      font-size:30px;
-      font-weight:900;
-      direction:ltr;
-      unicode-bidi:plaintext;
-      line-height:1.05;
+    .article-card{
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+      border-radius:18px; padding:16px;
+    }
+    .article-card .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px; border-radius:999px; background:rgba(56,189,248,.10);
+      color:#dbe7f8; font-size:12px; font-weight:800; margin-bottom:12px;
+    }
+    .article-card h3{margin:0 0 10px 0; font-size:18px; color:#F8FAFC}
+    .article-card p{margin:0; color:var(--muted); line-height:1.9; font-size:14px}
+    .article-card a{
+      display:inline-flex; margin-top:12px; text-decoration:none; color:var(--blue);
+      font-weight:800;
     }
 
-    .source-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-    }
+    .source-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
     .source{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      text-decoration:none;
-      padding:14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.035);
-      border:1px solid rgba(255,255,255,.06);
-      transition:.25s ease;
+      display:flex; gap:12px; align-items:flex-start; text-decoration:none;
+      padding:14px; border-radius:16px; background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.06); transition:.25s ease;
     }
-    .source:hover{
-      transform:translateY(-3px);
-      border-color:rgba(56,189,248,.22);
-      background:rgba(56,189,248,.08);
-    }
-    .source i{
-      color:var(--blue-2);
-      margin-top:2px;
-      flex:0 0 auto;
-    }
-    .source b{
-      display:block;
-      margin-bottom:4px;
-    }
-    .source small{
-      display:block;
-      color:var(--muted);
-      line-height:1.7;
-    }
+    .source:hover{transform:translateY(-3px); border-color:rgba(56,189,248,.22); background:rgba(56,189,248,.08)}
+    .source i{color:var(--blue); margin-top:2px; flex:0 0 auto}
+    .source b{display:block; margin-bottom:4px}
+    .source small{display:block; color:var(--muted); line-height:1.7}
 
     details.faq{
-      background:rgba(255,255,255,.035);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:16px;
-      padding:14px 16px;
-      margin-bottom:12px;
+      background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.06);
+      border-radius:16px; padding:14px 16px; margin-bottom:12px;
     }
-    details.faq summary{
-      cursor:pointer;
-      font-weight:900;
-      color:#F8FAFC;
-      list-style:none;
-    }
+    details.faq summary{cursor:pointer; font-weight:900; color:#F8FAFC; list-style:none}
     details.faq summary::-webkit-details-marker{display:none}
-    details.faq .faq-body{
-      color:var(--muted);
-      line-height:1.95;
-      margin-top:12px;
-      font-size:15px;
-    }
+    details.faq .faq-body{color:var(--muted); line-height:1.95; margin-top:12px; font-size:15px}
 
     .ad-box{
-      background:rgba(255,255,255,.03);
-      border:1px dashed rgba(255,255,255,.12);
-      border-radius:18px;
-      padding:14px;
-      text-align:center;
-      overflow:hidden;
+      background:rgba(255,255,255,.03); border:1px dashed rgba(255,255,255,.12);
+      border-radius:18px; padding:14px; text-align:center; overflow:hidden;
     }
-    .ad-label{
-      color:var(--muted);
-      font-size:12px;
-      margin-bottom:10px;
-      letter-spacing:.3px;
-    }
+    .ad-label{color:var(--muted); font-size:12px; margin-bottom:10px; letter-spacing:.3px}
 
     .footer{
-      text-align:center;
-      color:var(--muted);
-      padding:24px 0 8px;
-      font-size:14px;
-      line-height:1.8;
+      text-align:center; color:var(--muted); padding:24px 0 8px; font-size:14px; line-height:1.8;
+    }
+    .footer-links{
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:10px;
+    }
+    .footer-links a{
+      text-decoration:none; color:#dbe7f8;
+      padding:8px 12px; border-radius:999px;
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07);
     }
 
     .overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.55);
-      backdrop-filter:blur(3px);
-      z-index:900;
-      opacity:0;
-      pointer-events:none;
-      transition:.25s ease;
+      position:fixed; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(3px);
+      z-index:900; opacity:0; pointer-events:none; transition:.25s ease;
     }
-    .overlay.active{
-      opacity:1;
-      pointer-events:auto;
-    }
+    .overlay.active{opacity:1; pointer-events:auto}
 
     .section-label{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color:var(--muted);
-      font-size:13px;
-      letter-spacing:.3px;
-      text-transform:uppercase;
-      margin-bottom:10px;
-      font-weight:700;
+      display:inline-flex; align-items:center; gap:8px;
+      color:var(--muted); font-size:13px; letter-spacing:.3px;
+      text-transform:uppercase; margin-bottom:10px; font-weight:700;
     }
-    .note{
-      margin-top:14px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.8;
-    }
+    .note{margin-top:14px; color:var(--muted); font-size:13px; line-height:1.8}
 
-    .two-cols{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:18px;
-    }
-    .info-list{
-      display:grid;
-      gap:10px;
-    }
+    .two-cols{display:grid; grid-template-columns:1.15fr .85fr; gap:18px}
+    .info-list{display:grid; gap:10px}
     .info-item{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      background:rgba(255,255,255,.035);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:16px;
-      padding:14px;
+      display:flex; gap:12px; align-items:flex-start;
+      background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.06);
+      border-radius:16px; padding:14px;
     }
-    .info-item i{
-      color:var(--blue-2);
-      margin-top:3px;
-      flex:0 0 auto;
-    }
-    .info-item b{
-      display:block;
-      margin-bottom:4px;
-    }
-    .info-item span{
-      color:var(--muted);
-      line-height:1.75;
-      font-size:14px;
-    }
+    .info-item i{color:var(--blue); margin-top:3px; flex:0 0 auto}
+    .info-item b{display:block; margin-bottom:4px}
+    .info-item span{color:var(--muted); line-height:1.75; font-size:14px}
 
-    .contact-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-    }
+    .contact-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
     .contact-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+      border-radius:18px; padding:16px; display:flex; gap:12px; align-items:flex-start;
     }
-    .contact-card i{
-      color:var(--blue-2);
-      margin-top:2px;
-      flex:0 0 auto;
-      font-size:18px;
-    }
-    .contact-card b{
-      display:block;
-      margin-bottom:6px;
-    }
-    .contact-card a,
-    .contact-card span{
-      color:var(--muted);
-      text-decoration:none;
-      line-height:1.8;
-      word-break:break-word;
+    .contact-card i{color:var(--blue); margin-top:2px; flex:0 0 auto; font-size:18px}
+    .contact-card b{display:block; margin-bottom:6px}
+    .contact-card a, .contact-card span{
+      color:var(--muted); text-decoration:none; line-height:1.8; word-break:break-word;
     }
 
     .back-to-top{
-      position:fixed;
-      bottom:20px;
-      left:20px;
-      width:50px;
-      height:50px;
-      border-radius:50%;
+      position:fixed; bottom:20px; left:20px;
+      width:50px; height:50px; border-radius:50%;
       background:linear-gradient(135deg,#38BDF8,#22C55E);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-size:20px;
-      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      color:white; font-size:20px; cursor:pointer;
       box-shadow:0 10px 30px rgba(0,0,0,.4);
-      opacity:0;
-      transition:.3s;
-      z-index:999;
-      border:none;
+      opacity:0; transition:.3s; z-index:999; border:none;
     }
     .back-to-top.show{opacity:1}
-
-    .sr-only{
-      position:absolute;
-      width:1px;
-      height:1px;
-      padding:0;
-      margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      white-space:nowrap;
-      border:0;
-    }
 
     @media (max-width: 1080px){
       .page{grid-template-columns:1fr}
       .sidebar{
-        position:fixed;
-        top:78px;
-        right:-330px;
-        width:min(320px, 88vw);
-        z-index:1001;
-        transition:.25s ease;
+        position:fixed; top:78px; right:-330px;
+        width:min(320px, 88vw); z-index:1001; transition:.25s ease;
       }
       .sidebar.active{right:0}
       .content{padding:18px}
@@ -925,92 +471,41 @@
     }
 
     @media (max-width: 920px){
-      .stats,
-      .charts,
-      .kpis,
-      .timeline,
-      .source-grid,
-      .map-grid,
-      .contact-grid{
+      .stats, .charts, .kpis, .timeline, .source-grid, .map-grid, .contact-grid, .article-grid{
         grid-template-columns:1fr;
       }
-
       .stat .value{font-size:34px}
       .hero{padding:24px}
       .hero h1{font-size:clamp(28px, 8vw, 44px)}
       .hero .subtitle{font-size:16px}
-      .chart-box{
-        min-height:320px;
-      }
-      .chart-frame{
-        height:280px;
-      }
+      .chart-box{min-height:320px}
+      .chart-frame{height:280px}
 
-      .table-wrap{
-        border-radius:16px;
+      .table-wrap{border-radius:16px}
+      table, thead, tbody, tr, th, td{
+        display:block; width:100%;
       }
-
-      table,
-      thead,
-      tbody,
-      tr,
-      th,
-      td{
-        display:block;
-        width:100%;
-      }
-
-      table{
-        min-width:0;
-      }
-
-      thead{
-        display:none;
-      }
-
+      table{min-width:0}
+      thead{display:none}
       tbody tr{
         margin:0 0 12px;
         border:1px solid rgba(255,255,255,.06);
-        border-radius:16px;
-        overflow:hidden;
+        border-radius:16px; overflow:hidden;
         background:rgba(255,255,255,.04);
       }
-
       tbody td{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:12px;
-        text-align:right;
-        padding:12px 14px;
-        border-bottom:1px solid rgba(255,255,255,.08);
-        min-height:52px;
+        display:flex; align-items:center; justify-content:space-between;
+        gap:12px; text-align:right; padding:12px 14px;
+        border-bottom:1px solid rgba(255,255,255,.08); min-height:52px;
       }
-
-      tbody td:last-child{
-        border-bottom:none;
-      }
-
+      tbody td:last-child{border-bottom:none}
       tbody td::before{
-        content:attr(data-label);
-        color:#c8d1e2;
-        font-weight:800;
-        flex:0 0 auto;
+        content:attr(data-label); color:#c8d1e2; font-weight:800; flex:0 0 auto;
       }
 
-      .topbar-meta{
-        gap:8px;
-      }
-
-      .topbar-meta .pill{
-        display:none;
-      }
-
-      .lang-btn{
-        min-width:72px;
-        height:42px;
-        padding:0 12px;
-      }
+      .topbar-meta{gap:8px}
+      .topbar-meta .pill{display:none}
+      .lang-btn{min-width:72px; height:42px; padding:0 12px}
     }
 
     @media (max-width: 640px){
@@ -1026,12 +521,8 @@
       .back-to-top{left:14px; bottom:14px}
       .chart-frame{height:240px}
       .chart-box{min-height:290px}
-      .topbar{
-        gap:10px;
-      }
-      .brand span{
-        max-width:180px;
-      }
+      .topbar{gap:10px}
+      .brand span{max-width:180px}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1051,7 +542,7 @@
     "@type": "WebSite",
     "name": "Muslim & Christian Numbers",
     "url": "https://muslimchristiannumbers.github.io/",
-    "description": "إحصائيات تفاعلية لعدد المسلمين والمسيحيين حول العالم"
+    "description": "منصة إحصائية احترافية لعرض وتحليل أعداد المسلمين والمسيحيين حول العالم"
   }
   </script>
 
@@ -1075,7 +566,7 @@
     "@type": "Organization",
     "name": "Muslim & Christian Numbers",
     "url": "https://muslimchristiannumbers.github.io/",
-    "logo": "https://muslimchristiannumbers.github.io/logo.png"
+    "email": "muslimchristiannumbers@gmail.com"
   }
   </script>
 </head>
@@ -1120,12 +611,12 @@
         <a class="nav-link" href="#charts"><i class="fa-solid fa-chart-line"></i> <span data-i18n="nav_charts">الرسوم البيانية</span></a>
         <a class="nav-link" href="#map"><i class="fa-solid fa-globe"></i> <span data-i18n="nav_map">الخريطة القارية</span></a>
         <a class="nav-link" href="#future"><i class="fa-solid fa-calendar-days"></i> <span data-i18n="nav_future">التوقعات</span></a>
-        <a class="nav-link" href="#articles"><i class="fa-solid fa-pen-nib"></i> <span data-i18n="nav_articles">مقالات SEO</span></a>
+        <a class="nav-link" href="#articles"><i class="fa-solid fa-pen-nib"></i> <span data-i18n="nav_articles">المقالات</span></a>
         <a class="nav-link" href="#faq"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">الأسئلة الشائعة</span></a>
         <a class="nav-link" href="#sources"><i class="fa-solid fa-book"></i> <span data-i18n="nav_sources">المصادر</span></a>
         <a class="nav-link" href="#method"><i class="fa-solid fa-clipboard-check"></i> <span data-i18n="nav_method">المنهجية</span></a>
-        <a class="nav-link" href="#contact"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav_contact">اتصل بنا</span></a>
         <a class="nav-link" href="about.html"><i class="fa-solid fa-circle-info"></i> <span data-i18n="nav_about">من نحن</span></a>
+        <a class="nav-link" href="terms.html"><i class="fa-solid fa-file-lines"></i> <span data-i18n="nav_terms">شروط الاستخدام</span></a>
         <a class="nav-link" href="privacy.html"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="nav_privacy">سياسة الخصوصية</span></a>
         <a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav_contact">اتصل بنا</span></a>
       </nav>
@@ -1149,7 +640,7 @@
         </div>
 
         <div class="quick-note" id="sideNote">
-          المنصة مخصصة لعرض البيانات بشكل واضح ومنظم، مع فلاتر وجداول ورسوم تفاعلية لقراءة أسرع.
+          منصة منظمة لعرض البيانات، مع فلاتر وجداول ورسوم ومحتوى نصي يدعم القراءة السريعة والتحليل.
         </div>
       </div>
 
@@ -1157,6 +648,7 @@
         <h3 id="linksTitle">روابط سريعة</h3>
         <div class="quick-note" id="linksNote">
           <a href="about.html" style="text-decoration:none; display:block; margin-bottom:8px;"><i class="fa-solid fa-circle-info"></i> <span data-i18n="nav_about">من نحن</span></a>
+          <a href="terms.html" style="text-decoration:none; display:block; margin-bottom:8px;"><i class="fa-solid fa-file-lines"></i> <span data-i18n="nav_terms">شروط الاستخدام</span></a>
           <a href="privacy.html" style="text-decoration:none; display:block; margin-bottom:8px;"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="nav_privacy">سياسة الخصوصية</span></a>
           <a href="contact.html" style="text-decoration:none; display:block;"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav_contact">اتصل بنا</span></a>
         </div>
@@ -1255,7 +747,7 @@
         <article class="card" id="muslims">
           <h2 data-i18n="muslims_title">المسلمون</h2>
           <p class="sub" data-i18n="muslims_desc">
-            توزيع قاري تقريبي يوضح أين يتركز المسلمون حول العالم. الأرقام هنا تعرض الصورة العامة الحالية،
+            توزيع قاري تقريبي يوضح أين يتركز المسلمون حول العالم. الأرقام تعرض الصورة العامة الحالية،
             بينما الفلتر بالأسفل يبدّل بين القارات بطريقة تفاعلية.
           </p>
           <div class="table-wrap" aria-label="جدول توزيع المسلمين">
@@ -1422,47 +914,32 @@
             هذه الفقرة تدعم الظهور في محركات البحث عبر محتوى نصي أصيل يشرح الأرقام بشكل مبسط وواضح.
           </p>
 
-          <div class="two-cols">
-            <div class="info-list">
-              <div class="info-item">
-                <i class="fa-solid fa-pen-nib"></i>
-                <div>
-                  <b data-i18n="article1_title">كم عدد المسلمين في العالم 2026؟</b>
-                  <span data-i18n="article1_body">
-                    يبلغ عدد المسلمين حوالي 2.1 مليار نسمة، ويتركزون بشكل رئيسي في آسيا وأفريقيا،
-                    مع انتشار ملحوظ في أوروبا والأمريكيتين.
-                  </span>
-                </div>
-              </div>
-
-              <div class="info-item">
-                <i class="fa-solid fa-pen-nib"></i>
-                <div>
-                  <b data-i18n="article2_title">عدد المسيحيين عالميًا</b>
-                  <span data-i18n="article2_body">
-                    تُعد المسيحية أكبر ديانة في العالم بحوالي 2.7 مليار شخص، مع ثقل تاريخي كبير
-                    في أوروبا والأمريكتين، ونمو واضح في أجزاء من أفريقيا.
-                  </span>
-                </div>
-              </div>
-
-              <div class="info-item">
-                <i class="fa-solid fa-pen-nib"></i>
-                <div>
-                  <b data-i18n="article3_title">أهمية المحتوى النصي للموقع</b>
-                  <span data-i18n="article3_body">
-                    إضافة المقالات والحقائق المختصرة يزيد من فرص ظهور الموقع في نتائج البحث
-                    ويعطي الزائر سياقًا أوضح حول الأرقام المعروضة.
-                  </span>
-                </div>
-              </div>
+          <div class="article-grid">
+            <div class="article-card">
+              <div class="tag"><i class="fa-solid fa-chart-column"></i> 2026</div>
+              <h3 data-i18n="article1_title">كم عدد المسلمين في العالم 2026؟</h3>
+              <p data-i18n="article1_body">
+                يُقدَّر عدد المسلمين بحوالي 2.0 إلى 2.1 مليار نسمة، مع تركّز واضح في آسيا وأفريقيا، وتواجد ملحوظ في أوروبا والأمريكيتين.
+              </p>
+              <a href="articles.html">قراءة المزيد</a>
             </div>
 
-            <div class="ad-box" style="align-self:start">
-              <div class="ad-label">مساحة محتوى إضافي</div>
-              <div class="quick-note" data-i18n="extra_note">
-                يمكنك لاحقًا تحويل هذا القسم إلى مدونة مصغرة أو أخبار إحصائية أسبوعية.
-              </div>
+            <div class="article-card">
+              <div class="tag"><i class="fa-solid fa-chart-line"></i> تحليل</div>
+              <h3 data-i18n="article2_title">عدد المسيحيين عالميًا</h3>
+              <p data-i18n="article2_body">
+                تُعد المسيحية أكبر ديانة في العالم بحوالي 2.7 مليار شخص، مع ثقل تاريخي كبير في أوروبا والأمريكتين، ونمو واضح في أجزاء من أفريقيا.
+              </p>
+              <a href="articles.html">قراءة المزيد</a>
+            </div>
+
+            <div class="article-card">
+              <div class="tag"><i class="fa-solid fa-pen-nib"></i> SEO</div>
+              <h3 data-i18n="article3_title">أهمية المحتوى النصي للموقع</h3>
+              <p data-i18n="article3_body">
+                إضافة المقالات والحقائق المختصرة يزيد من فرص ظهور الموقع في نتائج البحث ويعطي الزائر سياقًا أوضح حول الأرقام المعروضة.
+              </p>
+              <a href="articles.html">قراءة المزيد</a>
             </div>
           </div>
         </article>
@@ -1619,10 +1096,10 @@
               </div>
             </div>
             <div class="contact-card">
-              <i class="fa-solid fa-share-nodes"></i>
+              <i class="fa-solid fa-file-lines"></i>
               <div>
-                <b>Social</b>
-                <span>يمكن إضافة روابط الشبكات الاجتماعية لاحقًا هنا.</span>
+                <b>Pages</b>
+                <span>About / Terms / Articles / Privacy</span>
               </div>
             </div>
           </div>
@@ -1639,8 +1116,8 @@
               <div class="n gold"><a href="about.html" style="text-decoration:none;">i</a></div>
             </div>
             <div class="kpi">
-              <div class="t" data-i18n="nav_privacy">سياسة الخصوصية</div>
-              <div class="n blue"><a href="privacy.html" style="text-decoration:none;">🔒</a></div>
+              <div class="t" data-i18n="nav_terms">شروط الاستخدام</div>
+              <div class="n blue"><a href="terms.html" style="text-decoration:none;">📄</a></div>
             </div>
             <div class="kpi">
               <div class="t" data-i18n="nav_contact">اتصل بنا</div>
@@ -1653,7 +1130,16 @@
           </div>
         </div>
 
-        <div class="footer">© 2026 | Dashboard إحصائيات عالمي</div>
+        <div class="footer">
+          © 2026 | Muslim &amp; Christian Numbers
+          <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="terms.html">Terms</a>
+            <a href="articles.html">Articles</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
       </section>
     </main>
   </div>
@@ -1682,11 +1168,12 @@
         nav_charts: 'الرسوم البيانية',
         nav_map: 'الخريطة القارية',
         nav_future: 'التوقعات',
-        nav_articles: 'مقالات SEO',
+        nav_articles: 'المقالات',
         nav_faq: 'الأسئلة الشائعة',
         nav_sources: 'المصادر',
         nav_method: 'المنهجية',
         nav_about: 'من نحن',
+        nav_terms: 'شروط الاستخدام',
         nav_privacy: 'سياسة الخصوصية',
         nav_contact: 'اتصل بنا',
         hero_label: 'منصة إحصائية متخصصة',
@@ -1713,7 +1200,7 @@
         interactive: 'تفاعلي',
         update_label: 'تحديث المحتوى',
         muslims_title: 'المسلمون',
-        muslims_desc: 'توزيع قاري تقريبي يوضح أين يتركز المسلمون حول العالم. الأرقام هنا تعرض الصورة العامة الحالية، بينما الفلتر بالأسفل يبدّل بين القارات بطريقة تفاعلية.',
+        muslims_desc: 'توزيع قاري تقريبي يوضح أين يتركز المسلمون حول العالم. الأرقام تعرض الصورة العامة الحالية، بينما الفلتر بالأسفل يبدّل بين القارات بطريقة تفاعلية.',
         christians_title: 'المسيحيون',
         christians_desc: 'توزيع قاري تقريبي للمسيحيين حول العالم، مع إبراز مناطق الثقل الرئيسية تاريخياً وحديثاً.',
         continent: 'القارة',
@@ -1746,12 +1233,11 @@
         articles_title: 'مقالات وتحليل SEO',
         articles_desc: 'هذه الفقرة تدعم الظهور في محركات البحث عبر محتوى نصي أصيل يشرح الأرقام بشكل مبسط وواضح.',
         article1_title: 'كم عدد المسلمين في العالم 2026؟',
-        article1_body: 'يبلغ عدد المسلمين حوالي 2.1 مليار نسمة، ويتركزون بشكل رئيسي في آسيا وأفريقيا، مع انتشار ملحوظ في أوروبا والأمريكيتين.',
+        article1_body: 'يُقدَّر عدد المسلمين بحوالي 2.0 إلى 2.1 مليار نسمة، مع تركّز واضح في آسيا وأفريقيا، وتواجد ملحوظ في أوروبا والأمريكيتين.',
         article2_title: 'عدد المسيحيين عالميًا',
         article2_body: 'تُعد المسيحية أكبر ديانة في العالم بحوالي 2.7 مليار شخص، مع ثقل تاريخي كبير في أوروبا والأمريكتين، ونمو واضح في أجزاء من أفريقيا.',
         article3_title: 'أهمية المحتوى النصي للموقع',
         article3_body: 'إضافة المقالات والحقائق المختصرة يزيد من فرص ظهور الموقع في نتائج البحث ويعطي الزائر سياقًا أوضح حول الأرقام المعروضة.',
-        extra_note: 'يمكنك لاحقًا تحويل هذا القسم إلى مدونة مصغرة أو أخبار إحصائية أسبوعية.',
         faq_title: 'الأسئلة الشائعة',
         faq_desc: 'إجابات سريعة ومختصرة تساعد الزائر وتدعم الظهور الغني في محركات البحث.',
         faq1_q: 'هل الأرقام ثابتة أم تقريبية؟',
@@ -1774,8 +1260,7 @@
         side_christians: 'المسيحيون',
         quickTitle: 'ملخص سريع',
         linksTitle: 'روابط سريعة',
-        sideNote: 'المنصة مخصصة لعرض البيانات بشكل واضح ومنظم، مع فلاتر وجداول ورسوم تفاعلية لقراءة أسرع.',
-        heroBadge: 'منصة إحصائية متخصصة',
+        sideNote: 'منصة منظمة لعرض البيانات، مع فلاتر وجداول ورسوم ومحتوى نصي يدعم القراءة السريعة والتحليل.',
         contactPreviewTitle: 'من نحن / الخصوصية / اتصل بنا',
         contactPreviewDesc: 'تم إرجاع الروابط المهمة في القائمة الجانبية مع الأيقونات، لتبقى الصفحة كاملة واحترافية ومناسبة للتنقل السريع.'
       },
@@ -1789,11 +1274,12 @@
         nav_charts: 'Charts',
         nav_map: 'Continent Map',
         nav_future: 'Forecast',
-        nav_articles: 'SEO Articles',
+        nav_articles: 'Articles',
         nav_faq: 'FAQ',
         nav_sources: 'Sources',
         nav_method: 'Methodology',
         nav_about: 'About',
+        nav_terms: 'Terms',
         nav_privacy: 'Privacy Policy',
         nav_contact: 'Contact',
         hero_label: 'Specialized Statistics Platform',
@@ -1853,12 +1339,11 @@
         articles_title: 'SEO articles and analysis',
         articles_desc: 'This section supports search visibility with original text that explains the numbers in a simple, clear way.',
         article1_title: 'How many Muslims are there in 2026?',
-        article1_body: 'There are about 2.1 billion Muslims, concentrated mainly in Asia and Africa, with notable communities in Europe and the Americas.',
+        article1_body: 'There are about 2.0 to 2.1 billion Muslims, concentrated mainly in Asia and Africa, with notable communities in Europe and the Americas.',
         article2_title: 'Christians worldwide',
         article2_body: 'Christianity is the world’s largest religion with about 2.7 billion people, with a historical center in Europe and the Americas, and clear growth in parts of Africa.',
         article3_title: 'Why text content matters',
         article3_body: 'Adding short articles and facts improves your chances of appearing in search results and gives visitors clearer context for the numbers shown.',
-        extra_note: 'You can later turn this into a mini blog or weekly statistics news section.',
         faq_title: 'Frequently asked questions',
         faq_desc: 'Quick answers that help visitors and support richer search visibility.',
         faq1_q: 'Are the numbers exact or approximate?',
@@ -1881,8 +1366,7 @@
         side_christians: 'Christians',
         quickTitle: 'Quick summary',
         linksTitle: 'Quick links',
-        sideNote: 'The platform is built to present data clearly and neatly, with filters, tables, and interactive charts for faster reading.',
-        heroBadge: 'Specialized statistics platform',
+        sideNote: 'A structured platform for data presentation, with filters, tables, charts, and text built for fast reading and analysis.',
         contactPreviewTitle: 'About / Privacy / Contact',
         contactPreviewDesc: 'Important links are restored in the sidebar with icons, keeping the page complete, professional, and fast to navigate.'
       }
@@ -1894,7 +1378,6 @@
       const el = document.querySelector(selector);
       if(el) el.textContent = value;
     }
-
     function setHTML(selector, value){
       const el = document.querySelector(selector);
       if(el) el.innerHTML = value;
@@ -1916,8 +1399,7 @@
           oceania: lang === 'ar' ? 'أوقيانوسيا' : 'Oceania'
         };
         [...continentSelect.options].forEach(option=>{
-          const value = option.value;
-          if(labels[value]) option.textContent = labels[value];
+          if(labels[option.value]) option.textContent = labels[option.value];
         });
       }
 
@@ -1952,8 +1434,8 @@
 
       const t = translations[lang];
       document.title = lang === 'ar'
-        ? 'Muslim & Christian Numbers | إحصائيات المسلمين والمسيحيين 2026'
-        : 'Muslim & Christian Numbers | Muslims and Christians Statistics 2026';
+        ? 'Muslim & Christian Numbers | إحصائيات وتحليلات 2026'
+        : 'Muslim & Christian Numbers | Statistics and Analysis 2026';
 
       setText('#brandText', t.brand);
       setHTML('#topPill1', `<i class="fa-regular fa-clock"></i> ${lang === 'ar' ? 'تحديث 2026' : 'Updated 2026'}`);
@@ -1988,22 +1470,18 @@
       setRegion(continentSelect.value);
     }
 
-    langBtn.addEventListener('click', ()=>{
-      applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
-    });
+    langBtn.addEventListener('click', ()=> applyLanguage(currentLang === 'ar' ? 'en' : 'ar'));
 
     function openMenu(){
       sidebar.classList.add('active');
       overlay.classList.add('active');
       menuBtn.setAttribute('aria-expanded', 'true');
     }
-
     function closeMenu(){
       sidebar.classList.remove('active');
       overlay.classList.remove('active');
       menuBtn.setAttribute('aria-expanded', 'false');
     }
-
     function toggleMenu(){
       if(sidebar.classList.contains('active')) closeMenu();
       else openMenu();
@@ -2021,9 +1499,7 @@
     });
 
     document.querySelectorAll('.nav-link').forEach(link=>{
-      link.addEventListener('click', ()=>{
-        if(isMobile()) closeMenu();
-      });
+      link.addEventListener('click', ()=>{ if(isMobile()) closeMenu(); });
     });
 
     const observer = new IntersectionObserver(entries=>{
@@ -2055,9 +1531,7 @@
 
     sections.forEach(sec=>navObserver.observe(sec));
 
-    window.addEventListener('load', ()=>{
-      setTimeout(()=>loader.classList.add('hidden'), 350);
-    });
+    window.addEventListener('load', ()=> setTimeout(()=>loader.classList.add('hidden'), 350));
 
     function animateNumber(el, endValue, suffix='B', duration=1400){
       const start = 0;
@@ -2070,6 +1544,7 @@
       }
       requestAnimationFrame(step);
     }
+
     animateNumber(document.getElementById('muslimCount'), 2.1);
     animateNumber(document.getElementById('christianCount'), 2.7);
 
@@ -2132,7 +1607,6 @@
             backgroundColor: ['#38BDF8', '#4ADE80'],
             borderWidth: 0,
             borderRadius: 12,
-            barThickness: 'flex',
             maxBarThickness: 86
           }]
         },
@@ -2276,11 +1750,8 @@
     });
 
     window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 400){
-        topBtn.classList.add('show');
-      }else{
-        topBtn.classList.remove('show');
-      }
+      if(window.scrollY > 400) topBtn.classList.add('show');
+      else topBtn.classList.remove('show');
     });
 
     topBtn.addEventListener('click', ()=>{
